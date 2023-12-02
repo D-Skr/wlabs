@@ -1,1 +1,1 @@
-# wlabs
+# HackBright Academy Labs
