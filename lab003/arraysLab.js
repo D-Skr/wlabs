@@ -35,6 +35,8 @@ console.log(lastItem);
 // whole array in the console.
 // The expected output is [2, 4, 6, 8, 10, 12, 1, 3, 5,  7, 42]
 
+sampleArray.push(42);
+console.log(sampleArray);
 
 //////////////////PROBLEM 5////////////////////
 
@@ -43,6 +45,8 @@ console.log(lastItem);
 // sure that the element has been removed
 // The expected output is [2, 4, 6, 8, 10, 12, 1, 3, 5,  7]
 
+sampleArray.pop();
+console.log(sampleArray);
 
 //////////////////PROBLEM 6////////////////////
 
@@ -50,7 +54,9 @@ console.log(lastItem);
 // log it to the console.
 // The expected output is [42, 4, 6, 8, 10, 12, 1, 3, 5, 42]
 
-
+sampleArray[0] = 42;
+sampleArray[arrayLength - 1] = 42;
+console.log(sampleArray);
 
 //////////////////PROBLEM 7////////////////////
 
