@@ -143,9 +143,23 @@ console.log(reversedArray);
 const groceryList = ['apple', 'banana', 'cherry', 'durian']
 const itemToRemove = 'banana';
 
+for (let item of groceryList) {
+    if (itemToRemove === item) {
+        groceryList.splice(1, groceryList.indexOf(item));
+    }
+}
+console.log(groceryList);
+
 // Also try with itemToRemove = 'apricot' and make sure that nothing happens
 // to the grocery list
 
+const itemToRemove2 = 'apricot';
+for (let item of groceryList) {
+    if (itemToRemove === item) {
+        groceryList.splice(1, groceryList.indexOf(item));
+    }
+}
+console.log(groceryList);
 
 //////////////////PROBLEM 14////////////////////
 
@@ -160,6 +174,12 @@ const itemToRemove = 'banana';
 
 let sum = 0;
 const repeats = [1, 1, 2, 5, 2, 6, 6];
+for (i = 1; i < repeats.length; i++) {
+    if (repeats[i - 1] === repeats[i]) {
+        sum += i;
+    }
+}
+console.log(sum);
 
 //////////////////PROBLEM 15////////////////////
 
@@ -170,3 +190,9 @@ const repeats = [1, 1, 2, 5, 2, 6, 6];
 
 const inputArray = [1, -2, 3, 5, -8, -13, 21];
 const indexes = [];
+for (i = 0; i < inputArray.length; i++) {
+    if (inputArray[i] > 0) {
+        indexes.push(i);
+    }
+}
+console.log(indexes);
