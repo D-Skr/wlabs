@@ -94,17 +94,19 @@ console.log(newArray);
 
 let numbers = [];
 
-for (let i = 0; i < 32; i++) {
+for (i = 0; i < 32; i++) {
     numbers.push(i);
 }
 console.log(numbers);
-
 
 //////////////////PROBLEM 10////////////////////
 
 // Fill the "evens" array with even numbers 0-20 using a for loop. Log the result.
 let evens = [];
-
+for (i = 0; i < 21; i += 2) {
+    evens.push(i);
+}
+console.log(evens);
 
 //////////////////PROBLEM 11////////////////////
 
@@ -112,7 +114,10 @@ let evens = [];
 // using a for loop. Log the result.
 
 let countdown = [];
-
+for (i = 10; i > 0; i--) {
+    countdown.push(i);
+}
+console.log(countdown);
 
 //////////////////PROBLEM 12////////////////////
 
@@ -122,7 +127,10 @@ let countdown = [];
 
 const originalArray = [1, 2, 3, 4];
 const reversedArray = [];
-
+for (i = originalArray.length - 1; i >= 0; i--) {
+    reversedArray.push(originalArray[i]);
+}
+console.log(reversedArray);
 
 
 /// ///////////////PROBLEM 13////////////////////
