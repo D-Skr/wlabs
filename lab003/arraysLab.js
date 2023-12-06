@@ -69,6 +69,10 @@ console.log(sampleArray);
 // 3    (<---- stop here, because three is odd)
 
 let num = 12;
+while (num % 2 == 0) {
+    console.log(num);
+    num /= 2;
+}
 
 //////////////////PROBLEM 8////////////////////
 
@@ -80,11 +84,10 @@ let num = 12;
 const startArray = [1, 2, 3, 4];
 let newArray = [];
 
-
-
 //////////////////PROBLEM 9////////////////////
 
 // Fill the "numbers" array with numbers 0-31 using a for loop. Log the result.
+
 let numbers = [];
 
 
