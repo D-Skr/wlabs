@@ -83,12 +83,21 @@ while (num % 2 == 0) {
 
 const startArray = [1, 2, 3, 4];
 let newArray = [];
+for (let num of startArray) {
+    newArray.push(num + 10);
+}
+console.log(newArray);
 
 //////////////////PROBLEM 9////////////////////
 
 // Fill the "numbers" array with numbers 0-31 using a for loop. Log the result.
 
 let numbers = [];
+
+for (let i = 0; i < 32; i++) {
+    numbers.push(i);
+}
+console.log(numbers);
 
 
 //////////////////PROBLEM 10////////////////////
