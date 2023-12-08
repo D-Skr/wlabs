@@ -17,4 +17,4 @@ Answer some questions about the terminal and git
 
 ### Extra Credit
 
-Write meaningful
+Write meaningful comments explaining what was done and why in **_orchard.js_**
