@@ -6,3 +6,7 @@ In this section, you’ll complete a series of practice problems that will ensur
 
 - Variables
 - Arrays
+
+## Part 2: Apple Orchard
+
+A bit harder problems than the ones in part 1.
