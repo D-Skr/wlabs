@@ -14,3 +14,7 @@ A bit harder problems than the ones in part 1.
 ## Part 3: Short Answer
 
 Answer some questions about the terminal and git
+
+### Extra Credit
+
+Write meaningful
