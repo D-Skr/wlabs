@@ -39,3 +39,13 @@ const middleNums = numbers.slice(1, numbers.length - 1);
 const bigOrSmallArray = [1, 99, 42, 69, 102, -10, 159, 352]
 
 // CODE HERE
+
+let answers = [];
+for (let i of bigOrSmallArray) {
+  if (i > 100) {
+    answers.push('big');
+  } else {
+    answers.push('small');
+  }
+}
+
