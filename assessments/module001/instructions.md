@@ -17,4 +17,5 @@ Answer some questions about the terminal and git
 
 ### Extra Credit
 
-Write meaningful comments explaining what was done and why in **_orchard.js_**
+- Write meaningful comments explaining what was done and why in **_orchard.js_**
+- Upload your code to GitHub.
