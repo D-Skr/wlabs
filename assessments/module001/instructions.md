@@ -15,7 +15,7 @@ A bit harder problems than the ones in part 1.
 
 Answer some questions about the terminal and git
 
-### Extra Credit
+## Extra Credit
 
 - Write meaningful comments explaining what was done and why in **_orchard.js_**
 - Upload your code to GitHub.
