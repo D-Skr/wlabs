@@ -28,7 +28,11 @@ const lovesCode = true;
 
 //CODE HERE
 
-
+if (faveNum === 13) {
+  console.log('lucky 13!');
+} else {
+  console.log('not lucky 13');
+}
 
 //////////////////PROBLEM 5////////////////////
 /*
@@ -36,3 +40,7 @@ const lovesCode = true;
 */
 
 //CODE HERE
+
+for (i = 1; i < 6; i++) {
+  console.log(i);
+}
