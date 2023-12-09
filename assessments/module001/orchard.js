@@ -35,7 +35,12 @@ const pinkAcres = [1, 5, 4, 2, 1, 5, 4]
 
 // CODE HERE
 
+let totalAcres = 0;
+for (let i = 0; i < 7; i++) {
+    totalAcres += fujiAcres[i] + galaAcres[i] + pinkAcres[i];
+}
 
+console.log(totalAcres);
 
 
 
@@ -52,8 +57,8 @@ const pinkAcres = [1, 5, 4, 2, 1, 5, 4]
 
 // CODE HERE
 
-
-
+let averageDailyAcres = totalAcres / 7;
+console.log(averageDailyAcres);
 
 
 // PROBLEM 3
@@ -78,7 +83,7 @@ const pinkAcres = [1, 5, 4, 2, 1, 5, 4]
     think about other ways you could do it more mathematically.
 */
 
-let acresLeft = 174 
+let acresLeft = 174
 let days = 0
 
 // CODE HERE
@@ -137,7 +142,7 @@ let pinkTons = [];
 
     Log each of the profits to the console. 
 */
-const fujiPrice = .89 
+const fujiPrice = .89
 const galaPrice = .64
 const pinkPrice = .55
 
@@ -153,7 +158,7 @@ const pinkPrice = .55
 // PROBLEM 7
 
 /*
-    Add up all your profits and save  the number to a variable called 
+    Add up all your profits and save  the number to a variable called
     `totalProfit`.
 
     Log `totalProfit` to the console.
