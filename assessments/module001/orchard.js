@@ -20,9 +20,6 @@ const galaAcres = [5, 2, 4, 3, 6, 2, 4]
 const pinkAcres = [1, 5, 4, 2, 1, 5, 4]
 
 
-
-
-
 // PROBLEM 1
 
 /*
@@ -35,12 +32,15 @@ const pinkAcres = [1, 5, 4, 2, 1, 5, 4]
 
 // CODE HERE
 
+//the total number of acres picked for the entire week.
 let totalAcres = 0;
+//iterate through the 7 days.
 for (let i = 0; i < 7; i++) {
+    //add sum of acres for each day 
     totalAcres += fujiAcres[i] + galaAcres[i] + pinkAcres[i];
 }
 
-console.log(totalAcres);
+console.log(totalAcres + " - the total number of acres picked for the entire week");
 
 // PROBLEM 2
 
@@ -55,8 +55,9 @@ console.log(totalAcres);
 
 // CODE HERE
 
+//the average number of acres picked per day: the total divided by the number of days
 let averageDailyAcres = totalAcres / 7;
-console.log(averageDailyAcres);
+console.log(averageDailyAcres + " - the average number of acres picked per day.");
 
 // PROBLEM 3
 
