@@ -81,22 +81,25 @@ console.log(averageDailyAcres + " - the average number of acres picked per day."
     think about other ways you could do it more mathematically.
 */
 
+//the number of acres that still have apples left.
 let acresLeft = 174
+//represents how many more days of work are left.
 let days = 0
 
 // CODE HERE
+//calculate how many days of work are left to pick up all apples.
 while (acresLeft > 0) {
     acresLeft -= averageDailyAcres;
     days++;
 }
-console.log(days);
+console.log(days + " - how many more days of work are left");
 
-//another approach
+//another approach to calculate how many days of work are left to pick up all apples.
 let acresLeft2 = 174
 let days2 = 0;
-
+//round float to ceiling to get the total number of days.
 days2 = Math.ceil(acresLeft2 / averageDailyAcres);
-console.log(days2);
+console.log(days2 + " - how many more days of work are left. 2nd approach");
 
 
 // PROBLEM 4
