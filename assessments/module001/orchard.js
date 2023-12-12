@@ -121,19 +121,21 @@ console.log(days2 + " - how many more days of work are left. 2nd approach");
 
 // CODE HERE
 
+//arrays that list the daily amount of apples picked, in tons, for each variety.
 let fujiTons = [];
 let galaTons = [];
 let pinkTons = [];
 
+//iterate through each array, calculate the value in tons and add to result array
 for (i = 0; i < fujiAcres.length; i++) {
     fujiTons.push(fujiAcres[i] * 6.5);
     galaTons.push(galaAcres[i] * 6.5);
     pinkTons.push(pinkAcres[i] * 6.5);
 }
 
-console.log(fujiTons);
-console.log(galaTons);
-console.log(pinkTons);
+console.log("The daily amount of apples picked, in tons, for Fuji: " + fujiTons);
+console.log("The daily amount of apples picked, in tons, for Gala: " + galaTons);
+console.log("The daily amount of apples picked, in tons, for Pink: " + pinkTons);
 
 
 // PROBLEM 5
@@ -150,21 +152,25 @@ console.log(pinkTons);
 */
 
 // CODE HERE 
+
+//DRY principle: function to calculate the TOTAL number of pounds picked per variety 
 function totalWeightInPounds(array) {
     let sum = 0;
     for (i = 0; i < array.length; i++) {
         sum += array[i];
     }
+    //2000 pounds in a ton
     sum *= 2000;
     return sum;
 }
+
 let fujiTotalPounds = totalWeightInPounds(fujiTons);
 let galaTotalPounds = totalWeightInPounds(galaTons);
 let pinkTotalPounds = totalWeightInPounds(pinkTons);
 
-console.log(fujiTotalPounds);
-console.log(galaTotalPounds);
-console.log(pinkTotalPounds);
+console.log("Fuji TOTAL number of pounds: " + fujiTotalPounds);
+console.log("Gala TOTAL number of pounds: " + galaTotalPounds);
+console.log("Pink TOTAL number of pounds: " + pinkTotalPounds);
 
 
 
@@ -184,13 +190,14 @@ const pinkPrice = .55
 
 // CODE HERE
 
+//Total profit is total weight in pounds multiply by price
 let fujiProfit = fujiTotalPounds * fujiPrice;
 let galaProfit = galaTotalPounds * galaPrice;
 let pinkProfit = pinkTotalPounds * pinkPrice;
 
-console.log(fujiProfit);
-console.log(galaProfit);
-console.log(pinkProfit);
+console.log("Total profit of selling Fuji: " + fujiProfit);
+console.log("Total profit of selling Gala: " + galaProfit);
+console.log("Total profit of selling Pink: " + pinkProfit);
 
 
 // PROBLEM 7
@@ -203,5 +210,7 @@ console.log(pinkProfit);
 */
 
 // CODE HERE
+
+//calculate the total profit of selling all apples.
 let totalProfit = fujiProfit + galaProfit + pinkProfit;
-console.log(totalProfit);
+console.log("Total profit: " + totalProfit);
