@@ -146,7 +146,22 @@ console.log(pinkTons);
 */
 
 // CODE HERE 
-    
+function totalWeightInPounds(array) {
+    let sum = 0;
+    for (i = 0; i < array.length; i++) {
+        sum += array[i];
+    }
+    sum *= 2000;
+    return sum;
+}
+let fujiTotalPounds = totalWeightInPounds(fujiTons);
+let galaTotalPounds = totalWeightInPounds(galaTons);
+let pinkTotalPounds = totalWeightInPounds(pinkTons);
+
+console.log(fujiTotalPounds);
+console.log(galaTotalPounds);
+console.log(pinkTotalPounds);
+
 
 
 // PROBLEM 6
