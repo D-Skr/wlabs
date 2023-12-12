@@ -42,8 +42,6 @@ for (let i = 0; i < 7; i++) {
 
 console.log(totalAcres);
 
-
-
 // PROBLEM 2
 
 /*
@@ -59,7 +57,6 @@ console.log(totalAcres);
 
 let averageDailyAcres = totalAcres / 7;
 console.log(averageDailyAcres);
-
 
 // PROBLEM 3
 
@@ -87,7 +84,18 @@ let acresLeft = 174
 let days = 0
 
 // CODE HERE
+while (acresLeft > 0) {
+    acresLeft -= averageDailyAcres;
+    days++;
+}
+console.log(days);
 
+//another approach
+let acresLeft2 = 174
+let days2 = 0;
+
+days2 = Math.ceil(acresLeft2 / averageDailyAcres);
+console.log(days2);
 
 
 // PROBLEM 4
