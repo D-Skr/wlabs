@@ -199,3 +199,5 @@ console.log(pinkProfit);
 */
 
 // CODE HERE
+let totalProfit = fujiProfit + galaProfit + pinkProfit;
+console.log(totalProfit);
