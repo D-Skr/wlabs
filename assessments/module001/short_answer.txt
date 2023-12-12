@@ -1,14 +1,15 @@
 1) What does the `rm` command in the terminal do?
 
 Your answer:
-
+remove
 
 ------------------
 2) What terminal command would you use to list all the files and folder in the 
    current directory?
 
 Your answer:
-
+ls
+but I prefer to use 'ls -la'
 
 ------------------
 3) Explain the difference between these two commands in the terminal:
@@ -17,18 +18,20 @@ Your answer:
    $ cd /Users
 
 Your answer:
+absolute vs relative path
 
 
 ------------------
 4) Describe what git is and what it is used for.
 
 Your answer:
-
+it is VCS - to control versions of your project
 
 ------------------
 5) Describe what GitHub is and what it is used for.
 
 Your answer:
+Cloud-based Git repo to store the code.
 
 
 ------------------
@@ -39,6 +42,7 @@ Your answer:
     d) git status
 
 Your answer:
+c)
 
 ------------------
 7) You want to check that you have properly added all the files you want to be
@@ -49,23 +53,24 @@ Your answer:
      d) git remote
 
 Your answer:
-
+c)
 
 ------------------
 8) What is the difference between `git add` and `git commit`?
 
 Your answer:
-
+git add - adds changes to staging area
+git commit - write it permanently
 
 ------------------
 9) What does the `git push` command do?
 
 Your answer:
-
+upload your commit from local to remote repo.
 
 ------------------
 10) When would you use the `git clone` command?
 
 Your answer:
-
+if you need to copy existing repo into a new directory.
 
