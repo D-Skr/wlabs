@@ -180,11 +180,13 @@ const pinkPrice = .55
 
 // CODE HERE
 
-// let fujiProfit =
-// let galaProfit =
-// let pinkProfit =
+let fujiProfit = fujiTotalPounds * fujiPrice;
+let galaProfit = galaTotalPounds * galaPrice;
+let pinkProfit = pinkTotalPounds * pinkPrice;
 
-
+console.log(fujiProfit);
+console.log(galaProfit);
+console.log(pinkProfit);
 
 
 // PROBLEM 7
