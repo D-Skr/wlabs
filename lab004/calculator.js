@@ -1,6 +1,6 @@
 function calculate(expression) {
   let arr = expression.split(' ');
-  if (arr.length === 2) {
+  if (arr.length === 2 && arr[0] === 'sqrt') {
     return sqrt(arr[1]);
   }
   let a = arr[0];
