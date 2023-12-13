@@ -19,3 +19,5 @@ is a game that you can play to practice using a UNIX shell and to learn some new
 - solve array problems and push to GitHub.
 
 ### 004 Calculator Lab
+
+This project is a building a simple calculator. The calculator will receive a string representing a mathematical expression (e.g. “2 + 3”) and return the answer (e.g. 5).
