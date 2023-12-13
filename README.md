@@ -25,9 +25,9 @@ This project is a building a simple calculator. The calculator will receive a st
 **calculator.js** is the file with code.
 **Operations:** add, subtract, multiply, divide, power, mod(remainder), sqrt, factorial.
 
-Step 1: Writing Functions for Operations
-Step 2: Tokenizing a String
-Step 3: Converting to Numbers
-Step 4: Square Roots
-Step 5: Too Many / Too Few Inputs
-Step 6: Factorial
+- Step 1: Writing Functions for Operations
+- Step 2: Tokenizing a String
+- Step 3: Converting to Numbers
+- Step 4: Square Roots
+- Step 5: Too Many / Too Few Inputs
+- Step 6: Factorial
