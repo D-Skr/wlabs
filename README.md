@@ -12,7 +12,7 @@ conditional statements and comparison operators, and converting data types.
 
 - bash commands
 
-is a game that you can play to practice using a UNIX shell and to learn some new and useful shell commands.Adapted from https://gitlab.com/slackermedia/bashcrawl under the GNU GPLv3 License.
+is a game that you can play to practice using a UNIX shell and to learn some new and useful shell commands. Adapted from https://gitlab.com/slackermedia/bashcrawl under the GNU GPLv3 License.
 
 ### 003 Arrays Lab
 
@@ -21,11 +21,13 @@ is a game that you can play to practice using a UNIX shell and to learn some new
 ### 004 Calculator Lab
 
 This project is a building a simple calculator. The calculator will receive a string representing a mathematical expression (e.g. “2 + 3”) and return the answer (e.g. 5).
+**index.html** is the file to run the calculator.
+**calculator.js** is the file with code.
+**Operations:** add, subtract, multiply, divide, power, mod(remainder), sqrt, factorial.
 
-- index.html is the file to run the calculator.
-- calculator.js is the file with code.
-- Operations: add, subtract, multiply, divide, power, mod(remainder), sqrt, factorial.
-
-#### Step 1: Writing Functions for Operations
-
-#### Step 2: Tokenizing a String
+Step 1: Writing Functions for Operations
+Step 2: Tokenizing a String
+Step 3: Converting to Numbers
+Step 4: Square Roots
+Step 5: Too Many / Too Few Inputs
+Step 6: Factorial
