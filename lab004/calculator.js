@@ -1,7 +1,7 @@
 function calculate(expression) {
   let arr = expression.split(' ');
-  if (arr.length < 2) {
-    return sqrt(arr[0]);
+  if (arr.length === 2) {
+    return sqrt(arr[1]);
   }
   let a = arr[0];
   let b = arr[2];
@@ -23,6 +23,7 @@ function calculate(expression) {
       return divide(a, b);
 
     case '**':
+    case '^':
       return power(a, b);
 
     case '%':
