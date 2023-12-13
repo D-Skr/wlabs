@@ -1,4 +1,26 @@
-function calculate(expression) {}
+function calculate(expression) { }
+
+function add(a, b) {
+  return a + b;
+}
+function subtrach(a, b) {
+  return a - b;
+}
+function multiply(a, b) {
+  return a * b;
+}
+function divide(a, b) {
+  return a / b;
+}
+function power(a, b) {
+  return a ** b;
+}
+function mode(a, b) {
+  return a % b;
+}
+function sqrt(a) {
+  return Math.sqrt(a);
+}
 
 /* **************** DO NOT EDIT THE CODE BELOW **************** */
 /* ************************************************************ */
