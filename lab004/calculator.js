@@ -20,7 +20,7 @@ function calculate(expression) {
       return multiply(a, b)
 
     case '/':
-      return devide(a, b);
+      return divide(a, b);
 
     case '**':
       return power(a, b);
