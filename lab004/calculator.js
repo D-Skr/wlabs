@@ -1,17 +1,26 @@
 function calculate(expression) {
   let arr = expression.split(' ');
-  if (arr.length === 2 && arr[0] === 'sqrt') {
-    return sqrt(arr[1]);
+  if (arr.length === 2) {
+    if (arr[0] === 'sqrt') return sqrt(arr[1]);
+    if (arr[0] === '!') return factorial(arr[1]);
   }
-  let a = arr[0];
-  let b = arr[2];
+  if (arr.length > 3) {
+    alert('too many arguments');
+    return;
+  }
+  let a = Number(arr[0]);
+  let b = Number(arr[2]);
   let operator = arr[1];
+  if (Number.isNaN(a) || Number.isNaN(b)) {
+    alert('invalid number');
+    return;
+  }
   // if (operator === '+') {
   //   return add(parseInt(arr[0]), parseInt(arr[2]));
   //}
   switch (operator) {
     case '+':
-      return add(parseInt(a), parseInt(b));
+      return add(a, b);
 
     case '-':
       return subtract(a, b);
@@ -54,6 +63,16 @@ function mod(a, b) {
 }
 function sqrt(a) {
   return Math.sqrt(a);
+}
+function factorial(a) {
+  if (a < 0) return alert('number should > 0');
+  if (a % 1 > 0) return alert('number should not be desimal');
+  if (a === 0 || a === 1) return a;
+  let result = 1;
+  for (i = 1; i < a; i++) {
+    result *= i;
+  }
+  return result * a;
 }
 
 /* **************** DO NOT EDIT THE CODE BELOW **************** */
