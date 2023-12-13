@@ -22,4 +22,6 @@ is a game that you can play to practice using a UNIX shell and to learn some new
 
 This project is a building a simple calculator. The calculator will receive a string representing a mathematical expression (e.g. “2 + 3”) and return the answer (e.g. 5).
 
-- index.html is the file to run the calculator. If you open it, you should see a heading that tells you to enter a mathematical expression, then a text box to enter the expression. Underneath the text box is the place where the answer will appear when you finish the lab.
+- index.html is the file to run the calculator.
+- calculator.js is the file with code.
+- Operations: add, subtract, multiply, divide, power, mod(remainder), sqrt, factorial.
