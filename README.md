@@ -17,3 +17,5 @@ is a game that you can play to practice using a UNIX shell and to learn some new
 ### 003 Arrays Lab
 
 - solve array problems and push to GitHub.
+
+### 004 Calculator Lab
