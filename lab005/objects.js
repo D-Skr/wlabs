@@ -180,11 +180,11 @@ function copyArray(arr) {
 
 function copyObject(obj) {
   let deepCopy = { ...obj };
-  deepCopy.copy = 'true';
+  deepCopy.copy = true;
   return deepCopy;
 }
 
-// check the function
+//check the function
 // let fruits = { apple: 6, berry: 12, cherry: 8 };
 // const val = copyObject(fruits);
 // console.log(val);
@@ -224,7 +224,12 @@ function addition(array) {
 // The values of these properties will be a number representing the count of that animal in the zoo
 // Using object destructuring, return the total sum of the counts of these animals
 
-// REPLACE THIS WITH YOUR CODE
+function zooAnimals(object) {
+  const [lion, tiger, bear] = Object.values(object);
+  return lion + tiger + bear;
+}
+//check
+//console.log(zooAnimals(animalCount)); //7
 
 /// ////////////// PROBLEM 16 ///////////////////
 
@@ -261,3 +266,14 @@ const myCar = {
     2. Loop over the accidents array (which is a property of the myCar object).
     3. For each accident, change atFaultForAccident from true to false.
 */
+
+function recordCleaner(anyCar) {
+  for (accident of anyCar.accidents) {
+    accident.atFaultForAccident = false;
+    //quick check
+    //console.log(accident);
+  }
+}
+
+// recordCleaner(myCar);
+// console.log(myCar);
