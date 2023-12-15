@@ -169,7 +169,8 @@ function getValues(obj) {
 // Then, add the string "copy" to the end of the copy and return the copy.
 
 function copyArray(arr) {
-  // REPLACE THIS WITH YOUR CODE
+  const deepCopy = { ...arr };
+  return deepCopy;
 }
 
 /// ////////////// PROBLEM 12 ////////////////////
