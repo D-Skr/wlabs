@@ -70,6 +70,12 @@ const userFirstName = person.firstName;
 
 function updateUser(user) {
   // Code Here
+  user = {
+    name: 'Ryan',
+    pwHash: 'U+Ldlngx2BYQkU+Ldlngx2BYQkU+Ldlngx2BYQk',
+    username: 'ryan2020'
+  }
+  return user;
 }
 
 /// ////////////// PROBLEM 6 ////////////////////
