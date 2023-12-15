@@ -179,8 +179,15 @@ function copyArray(arr) {
 // Then, add a new key-value pair {copy: true} to the end of the copy and return the copy.
 
 function copyObject(obj) {
-  // REPLACE THIS WITH YOUR CODE
+  let deepCopy = { ...obj };
+  deepCopy.copy = 'true';
+  return deepCopy;
 }
+
+// check the function
+// let fruits = { apple: 6, berry: 12, cherry: 8 };
+// const val = copyObject(fruits);
+// console.log(val);
 
 /// ////////////// PROBLEM 13 ////////////////////
 
