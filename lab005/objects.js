@@ -35,6 +35,15 @@ function personLocation() {
 
 //Code here
 
+const favoriteThings = {
+  band: 'Run CMD',
+  food: 'Cooked',
+  person: 'Jesus',
+  book: 'Bible',
+  movie: 'Back To The Future',
+  holiday: 'Programmer\'s day'
+}
+
 /// ////////////// PROBLEM 4 ////////////////////
 
 //Create a variable called userFirstName.  Assign it the value of the person's firstName property, using dot notation.
@@ -44,6 +53,8 @@ const person = {};
 person['firstName'] = 'sally';
 
 // Code Here
+
+const userFirstName = person.firstName;
 
 /// ////////////// PROBLEM 5 ////////////////////
 
