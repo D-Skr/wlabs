@@ -202,7 +202,9 @@ const animalCount = {
 // Use object destructuring syntax to create variables for each of the properties of the
 // animalCount object.
 
-// REPLACE THIS WITH YOUR CODE
+const [animal0, animal1, animal2] = Object.keys(animalCount); //for keys only
+//const [animal0, animal1, animal2] = Object.entries(animalCount); // for key:value pairs
+//console.log(animal0);
 
 /// ////////////// PROBLEM 14 ////////////////////
 
