@@ -31,3 +31,7 @@ This project is a building a simple calculator. The calculator will receive a st
 - Step 4: Square Roots
 - Step 5: Too Many / Too Few Inputs
 - Step 6: Factorial
+
+### 005 Objects Lab
+
+- Solve problems in the objects.js file
