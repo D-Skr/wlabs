@@ -212,7 +212,10 @@ const [animal0, animal1, animal2] = Object.keys(animalCount); //for keys only
 // In the function, use array destructuring to create variables for each of the numbers.
 // Then return the sum of the two numbers.
 
-// REPLACE THIS WITH YOUR CODE
+function addition(array) {
+  const [a, b] = array;
+  return a + b;
+}
 
 /// ////////////// PROBLEM 15 ////////////////////
 
