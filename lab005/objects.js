@@ -145,6 +145,10 @@ function double(obj) {
 */
 
 //Code Here
+function removePassword(user) {
+  delete user.password;
+  return user;
+}
 
 /// ////////////// PROBLEM 10 ////////////////////
 
@@ -152,8 +156,12 @@ function double(obj) {
 // Return an array containing all the object's values.
 
 function getValues(obj) {
-  // REPLACE THIS WITH YOUR CODE
+  return Object.values(obj);
 }
+// check the function
+// let fruits = { apple: 6, berry: 12, cherry: 8 };
+// const val = getValues(fruits);
+// console.log(val);
 
 /// ////////////// PROBLEM 11 ////////////////////
 
