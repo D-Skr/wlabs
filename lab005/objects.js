@@ -93,6 +93,7 @@ function updateUser(user) {
 
 function updateProfile(profile, property, value) {
   // Code here
+  profile.property = value;
   return profile;
 }
 
@@ -102,11 +103,18 @@ function updateProfile(profile, property, value) {
 // to change all the object property values to "max".
 // Return the updated object.
 
-function maxedOut(obj) {
-  // REPLACE THIS WITH YOUR CODE
 
+function maxedOut(obj) {
+  for (i in obj) {
+    // i is index
+    obj[i] = 'max';
+  }
   return obj;
 }
+// check
+// let fruits = { apple: 6, berry: 12, cherry: 8 };
+// maxedOut(fruits);
+// console.log(fruits);
 
 /// ////////////// PROBLEM 8 ///////////////////
 
@@ -117,6 +125,17 @@ function maxedOut(obj) {
 */
 
 //Code Here
+function double(obj) {
+  for (i in obj) {
+    obj[i] *= 2;
+  }
+  return obj;
+}
+// check the function
+// let fruits = { apple: 6, berry: 12, cherry: 8 };
+// double(fruits);
+// console.log(fruits);
+
 
 /// ////////////// PROBLEM 9 ///////////////////
 
