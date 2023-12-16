@@ -125,7 +125,7 @@ uniq(names, uniqNames => {
 */
 
 // CODE HERE 
-
+const each = (array, callback) => array.forEach((element, i) => callback(element, i));
 
 /*
   Invoke the each function, passing in the names array and a callback function.
@@ -135,7 +135,9 @@ uniq(names, uniqNames => {
 */
 
 // CODE HERE
-
+each(names, (value, index) => {
+  console.log(`The item at index ${index} is ${value}`)
+})
 
 ////////// PROBLEM 7 //////////
 
@@ -168,7 +170,8 @@ var users = [
 // Do not edit the code above.
 
 // CODE HERE 
-
+const getUserById = (users, id) => users.filter((user) => user.id === id);
+console.log(getUserById(users, '16t'));
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
