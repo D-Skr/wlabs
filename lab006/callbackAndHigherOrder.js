@@ -102,6 +102,7 @@ contains(names, 'Colt', result => {
 */
 
 // CODE HERE
+const uniq = (array, uniqArr) => uniqArr([...new Set(array)]);
 
 /*
   Invoke the uniq function, passing in the names array from above and a callback function.
@@ -111,7 +112,9 @@ contains(names, 'Colt', result => {
 */
 
 // CODE HERE
-
+uniq(names, uniqNames => {
+  console.log(`The new names array with all the duplicate items removed is ${uniqNames}`);
+})
 
 
 ////////// PROBLEM 6 //////////
