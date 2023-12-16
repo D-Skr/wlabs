@@ -38,8 +38,14 @@ This project is a building a simple calculator. The calculator will receive a st
 
 ### 006 Problem Solving Lab
 
-- LuckyNumbers
+- Lucky Numbers
 
 Given a number, n, return an array containing n unique random numbers between 1-10, inclusive.
 That is, do not repeat any numbers in the returned list.
 You can trust that this function will never be called with n < 0 or n > 10.
+
+- Is Palindrome
+
+Return true if this word is a palindrome. false if it is not.
+A palindrome is a word that is spelled the same backwards and forwards.
+Case sensitive.
