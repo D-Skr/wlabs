@@ -53,3 +53,7 @@ Case sensitive.
 - Callback And Higher Order
 
 Practice using of callback functions
+
+- Array Methods with Arrow Function Expression
+
+Inline arrow functions for callbacks. Methods **map(), forEach(), reduce(), filter(), sort()**.
