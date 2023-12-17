@@ -22,7 +22,7 @@ multiply(4, 3, answer => {
 // The names array will be used in problems 2 - 6.
 
 // Do not edit the code below.
-var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
+let names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 // Do not edit the code above.
 
 
@@ -147,7 +147,7 @@ each(names, (value, index) => {
 */
 
 // Do not edit the code below.
-var users = [
+let users = [
   {
     id: '12d',
     email: 'tyler@gmail.com',
