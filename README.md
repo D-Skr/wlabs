@@ -49,3 +49,7 @@ You can trust that this function will never be called with n < 0 or n > 10.
 Return true if this word is a palindrome. false if it is not.
 A palindrome is a word that is spelled the same backwards and forwards.
 Case sensitive.
+
+- Callback And Higher Order
+
+Practice using of callback functions
