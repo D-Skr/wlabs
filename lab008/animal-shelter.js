@@ -6,10 +6,11 @@ class Animal {
         this.species = species;
         this.color = color;
         this.hunger = hunger;
+        this.sound = 'Hi';
     }
 
     greet() {
-        return `Hi, ${this.name} ${this.species}`
+        return `${this.sound}, ${this.name} ${this.species}`
     }
 
     feed() {
@@ -21,11 +22,8 @@ class Animal {
 class Cat extends Animal {
     constructor(name, color, hunger) {
         super(name, 'cat', color, hunger);
+        this.sound = 'Meow'
         this.food = 'fish';
-    }
-
-    greet() {
-        return `Meow, ${this.name} ${this.species}`;
     }
 
     feed() {
@@ -38,10 +36,7 @@ class Dog extends Animal {
     constructor(name, color, hunger) {
         super(name, 'dog', color, hunger);
         this.food = 'kibble';
-    }
-
-    greet() {
-        return `Woof, ${this.name} ${this.species}`;
+        this.sound = 'Woof';
     }
 
     feed() {
@@ -70,13 +65,29 @@ class AnimalShelter {
         const animalIndex = this.animals.indexOf(animal);
         this.animals.splice(animalIndex, 1);
     }
+
+    getAnimalsBySpecies(species) {
+        return this.animals.filter(a => a.species === species);
+    }
 }
 
 const shelter = new AnimalShelter();
 
-for (a of animalData) {
-    const animal = new Animal(a.name, a.species, a.color, a.hunger);
+for (let a of animalData) {
+    let animal;
+    if (a.species === 'cat') {
+        animal = new Cat(a.name, a.color, a.hunger);
+    } else if (a.species === 'dog') {
+        animal = new Dog(a.name, a.color, a.hunger);
+    } else {
+        animal = new Animal(a.name, a.species, a.color, a.hunger);
+    }
     shelter.addAnimal(animal);
 }
 
-console.log(shelter.animals);
+console.log(shelter.getAnimalsBySpecies('dog'));
+
+shelter.animals.forEach(a => {
+    console.log(a.greet());
+    console.log(a.feed());
+})
