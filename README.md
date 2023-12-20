@@ -61,3 +61,7 @@ Inline arrow functions for callbacks. Methods **map(), forEach(), reduce(), filt
 ### 007 Higher Order Methods
 
 Solve problems, practice arrow function expression.
+
+### 008 Animal Shelter Lab
+
+In this project, we’ll be using classes to organize data about animals in an animal shelter.
