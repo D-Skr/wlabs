@@ -57,3 +57,7 @@ Practice using of callback functions
 - Array Methods with Arrow Function Expression
 
 Inline arrow functions for callbacks. Methods **map(), forEach(), reduce(), filter(), sort()**.
+
+### 007 Higher Order Methods
+
+Solve problems, practice arrow function expression.
