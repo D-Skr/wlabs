@@ -157,7 +157,7 @@ const [color, make, model, year] = Object.values(carDetails);
 
 function greeting(obj) {
   //Code Here
-
+  const [firstName, lastName, title] = Object.values(obj);
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
   // Do not edit the code above.
@@ -176,6 +176,10 @@ function greeting(obj) {
 */
 
 //Code Here
+function totalPopulation2(obj) {
+  const [utah, california, texas, arizona] = Object.values(obj);
+  return utah + california + texas + arizona;
+}
 
 
 
@@ -190,6 +194,12 @@ function greeting(obj) {
 */
 
 //Code Here
+function ingredients(obj) {
+  const [carb, fat, protein] = Object.values(obj);
+  let array = [];
+  array.push(carb, fat, protein);
+  return array;
+}
 
 
 
