@@ -120,7 +120,7 @@ const purchases = [{ "owner": "Barry", "price": 103 }, { "owner": "Bob", "price"
 */
 
 let bobsTotal = purchases.filter(purchase => purchase.owner === "Bob")
-    .reduce((total, purchase) => total + purchase.price, 0);
+  .reduce((total, purchase) => total + purchase.price, 0);
 console.log(`Bob's total is ${bobsTotal}`);
 
 
@@ -132,10 +132,10 @@ console.log(`Bob's total is ${bobsTotal}`);
 
 // Do not edit the code below.
 var carDetails = {
-    color: 'red',
-    make: 'toyota',
-    model: 'tacoma',
-    year: 1994
+  color: 'red',
+  make: 'toyota',
+  model: 'tacoma',
+  year: 1994
 }
 // Do not edit the code above.
 
@@ -144,7 +144,7 @@ var carDetails = {
 */
 
 //Code Here
-
+const [color, make, model, year] = Object.values(carDetails);
 
 
 ////////// PROBLEM 2 //////////
@@ -156,11 +156,11 @@ var carDetails = {
 */
 
 function greeting(obj) {
-    //Code Here
+  //Code Here
 
-    // Do not edit the code below.
-    return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
-    // Do not edit the code above.
+  // Do not edit the code below.
+  return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
+  // Do not edit the code above.
 }
 
 
@@ -230,10 +230,10 @@ function greeting(obj) {
 /* Use the spread operator to create a copy of the product object below.  Name the copy "productCopy" */
 
 let product = {
-    id: 54,
-    name: 'santa hat',
-    price: 6,
-    imageUrl: 'https://i.ebayimg.com/images/g/9T4AAOSwbmdZf2jN/s-l640.jpg'
+  id: 54,
+  name: 'santa hat',
+  price: 6,
+  imageUrl: 'https://i.ebayimg.com/images/g/9T4AAOSwbmdZf2jN/s-l640.jpg'
 }
 
 // code here
@@ -259,7 +259,7 @@ let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 let numbers = [4, 6, 10];
 
 function addNums(num1, num2, num3) {
-    return num1 + num2 + num3;
+  return num1 + num2 + num3;
 }
 
 // code here
