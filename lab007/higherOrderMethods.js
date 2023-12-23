@@ -233,6 +233,9 @@ function largeNumbers({first, second, third}){
 */
 
 //Code Here
+function numberGroups({a,b,c}){
+  return Math.max(a.length,b.length,c.length);
+}
 
 
 ///////////////////////////////
