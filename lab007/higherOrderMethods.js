@@ -206,7 +206,8 @@ function ingredients(obj) {
 ////////// PROBLEM 5 //////////
 
 /*
-  Now we will use object destructuring as the function's parameter instead of destructuring the object inside of the function declaration.
+  Now we will use object destructuring as the function's parameter 
+  instead of destructuring the object inside of the function declaration.
   Example:
     function example( {one, two, three} ) {
       return one + two + three
