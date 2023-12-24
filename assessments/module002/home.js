@@ -22,9 +22,8 @@
 */
 
 //CODE HERE
-
-
-
+const greetUser = (username) => `Welcome back, ${username}`;
+//console.log(greetUser('D'));
 
 
 //////////////////PROBLEM 2////////////////////
@@ -88,11 +87,11 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 const deals = [
     {
-        title: '15% Off!', 
+        title: '15% Off!',
         desc: 'Applied to your entire order when you spend $30 or more'
-    }, 
+    },
     {
-        title: 'Free Kids Meal with 2 Regular Entrees', 
+        title: 'Free Kids Meal with 2 Regular Entrees',
         desc: 'This deal lasts until the end of March!'
     }
 ]
@@ -115,7 +114,7 @@ const deals = [
 
 /*
     The restaurant is going to continue its
-    family deal for another month. 
+    family deal for another month.
 
     Reassign the value of the second deal's desc
     to be itself, but use the `replace` method
