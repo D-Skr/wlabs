@@ -1,0 +1,8 @@
+# Module 2 Assessment
+
+## Part 1: Skill Practice
+
+In this section, you’ll complete a series of practice problems that will ensure you practice the syntax and coding concepts from this unit’s lessons.
+
+- Home
+  Open the file called home.js and complete the problems that are described in the comments.
