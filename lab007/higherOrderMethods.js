@@ -254,7 +254,7 @@ let product = {
 }
 
 // code here
-let productCopy = [...product];
+let productCopy = { ...product };
 
 
 
@@ -283,7 +283,8 @@ function addNums(num1, num2, num3) {
 }
 
 // code here
-
+let result = addNums(...numbers);
+//console.log(result);
 
 
 ////////// PROBLEM 4 //////////
