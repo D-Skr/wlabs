@@ -49,8 +49,13 @@ const greetUser = (username) => `Welcome back, ${username}`;
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 //CODE HERE
-
-
+function canWeDeliver(zip) {
+    if (deliveryAreaZipCodes.contains(zip)) {
+        return "You're in our delivery zone!"
+    } else {
+        return "Sorry, we can't deliver to that address";
+    }
+}
 
 /* 
     Problem 2 Continued
