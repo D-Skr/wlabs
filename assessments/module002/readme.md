@@ -15,3 +15,11 @@ In this section, you’ll complete a series of practice problems that will ensur
 ### Cart
 
 - Open the file called cart.js and complete the problems that are described in the comments.
+
+### Orders
+
+- Open the file called orders.js and complete the problems that are described in the comments.
+
+### Employees
+
+- Open the file called employees.js and complete the problems that are described in the comments.
