@@ -4,14 +4,14 @@
 
 In this section, you’ll complete a series of practice problems that will ensure you practice the syntax and coding concepts from this unit’s lessons.
 
-#### Home
+### Home
 
 - Open the file called home.js and complete the problems that are described in the comments.
 
-#### Menu
+### Menu
 
 - Open the file called menu.js and complete the problems that are described in the comments.
 
-#### Cart
+### Cart
 
 - Open the file called cart.js and complete the problems that are described in the comments.
