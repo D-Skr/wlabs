@@ -50,12 +50,13 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 //CODE HERE
 function canWeDeliver(zip) {
-    if (deliveryAreaZipCodes.contains(zip)) {
+    if (deliveryAreaZipCodes.includes(zip)) {
         return "You're in our delivery zone!"
     } else {
         return "Sorry, we can't deliver to that address";
     }
 }
+//console.log(canWeDeliver(852113));
 
 /* 
     Problem 2 Continued
@@ -75,7 +76,15 @@ function canWeDeliver(zip) {
 */
 
 // CODE HERE
-
+function canWeDeliverTwo(zip) {
+    for (i of deliveryAreaZipCodes) {
+        if (i === zip) {
+            return "You're in our delivery zone!"
+        }
+    }
+    return "Sorry, we can't deliver to that address";
+}
+//console.log(canWeDeliverTwo(85213));
 
 //////////////////PROBLEM 3////////////////////
 /* 
