@@ -86,6 +86,8 @@ console.log(price);
 */
 
 //CODE HERE
+const category = pizza.category;
+console.log(category);
 
 
 //////////////////PROBLEM 3////////////////////
@@ -101,6 +103,58 @@ console.log(price);
 */
 
 //CODE HERE
+const foodArr = [
+    {
+        name: 'Pepperoni',
+        price: 15.50,
+        category: 'classic',
+        popularity: 333,
+        rating: 1,
+        tags: [
+            'gluten',
+            'meat',
+            'classic'
+        ]
+    },
+    {
+        name: 'Cheese',
+        price: 12.50,
+        category: 'classic',
+        popularity: 222,
+        rating: 2,
+        tags: [
+            'gluten-free',
+            'vegan',
+            'classic'
+        ]
+    },
+    {
+        name: 'Flat',
+        price: 10,
+        category: 'bread',
+        popularity: 5,
+        rating: 11,
+        tags: [
+            'gluten-free',
+            'vegan',
+            'classic',
+            'bread'
+        ]
+    },
+    {
+        name: '4Cheese',
+        price: 14.50,
+        category: 'classic',
+        popularity: 123,
+        rating: 3,
+        tags: [
+            'gluten-free',
+            'vegan',
+            'classic'
+        ]
+    }
+]
+
 
 
 
@@ -121,8 +175,8 @@ console.log(price);
 */
 
 //CODE HERE
-
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
+const filteredFood = foodArr.filter(food => food.tags.includes('vegan'));
+console.log(filteredFood);
 
 
 
