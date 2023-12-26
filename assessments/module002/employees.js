@@ -20,7 +20,16 @@
 */
 
 //CODE HERE
+class Employee {
+    constructor(name, shifts) {
+        this.name = name;
+        this.shifts = shifts;
+    }
 
+    getSchedule() {
+        return `${this.name} works on ${this.shifts}`;
+    }
+}
 
 
 /*
@@ -34,6 +43,7 @@
 */
 
 //CODE HERE
+const empOne = new Employee('Jess', 'weekday mornings');
 
 /*
     Call the `getSchedule` method on the
@@ -41,18 +51,17 @@
 */
 
 //CODE HERE
-
-
+console.log(empOne.getSchedule());
 
 
 //////////////////PROBLEM 2////////////////////
-/*  
-    Write a class called Manager that *extends* 
-    the Employee class. In the constructor, 
-    make sure you require all of the parameters 
-    from the Employee class as well as 1 
-    new one: employees, which will be an array of 
-    employee names that report to this manager. 
+/*
+    Write a class called Manager that *extends*
+    the Employee class. In the constructor,
+    make sure you require all of the parameters
+    from the Employee class as well as 1
+    new one: employees, which will be an array of
+    employee names that report to this manager.
     (Hint: don't forget to call the super function)
 
     Create a method called `getEmployees` that
@@ -64,8 +73,8 @@
     Create a second method called `addEmployee`
     that takes in one argument, `emp`, which
     should be a string of an employee name.
-    The function should push the name into 
-    the employees array. 
+    The function should push the name into
+    the employees array.
 */
 
 //CODE HERE
@@ -88,14 +97,14 @@
 
 /*
     Call the `getEmployees` method on the
-    `manager` variable.  
+    `manager` variable.
 */
 
 //CODE HERE
 
 /*
-    Call the `addEmployee` method on the 
-    `manager` variable passing in the string 
+    Call the `addEmployee` method on the
+    `manager` variable passing in the string
     'Coach' or whatever name you'd like.
 */
 
@@ -103,7 +112,7 @@
 
 /*
     Call the `getEmployees` method on the
-    `manager` varible again to confirm 
+    `manager` varible again to confirm
     that an employee was added.
 */
 
