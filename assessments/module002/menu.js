@@ -31,8 +31,18 @@
 */
 
 //CODE HERE
-
-
+const pizza = {
+    name: 'Cheese',
+    price: 12.50,
+    category: 'classic',
+    popularity: 222,
+    rating: 2,
+    tags: [
+        'gluten-free',
+        'vegan',
+        'classic'
+    ]
+}
 
 //////////////////PROBLEM 2////////////////////
 /*
@@ -43,6 +53,7 @@
 */
 
 //CODE HERE
+console.log(pizza.popularity);
 
 
 /*
@@ -53,6 +64,7 @@
 */
 
 //CODE HERE
+console.log(pizza.tags[1]);
 
 
 /*
@@ -63,7 +75,8 @@
 */
 
 //CODE HERE
-
+const price = parseFloat(pizza.price);
+console.log(price);
 
 /*
     Fourth, and last, destructure the category
