@@ -82,7 +82,15 @@ console.log(calcFinalPrice(100, 0.2, 0.05)); //84
 
 /*
     TEXT ANSWER HERE
-
+    Customer object should have 
+        unique ID (number), 
+        email (string), 
+        password hash (string), 
+        name (string), 
+        phone (string), 
+        address (string).
+    With email and password user can login, with name, phone, address user can order delivery.
+    Unique ID required to store client's data in DB.
 */
 
 /*
@@ -91,3 +99,11 @@ console.log(calcFinalPrice(100, 0.2, 0.05)); //84
 */
 
 //CODE HERE
+const customerObject = {
+    ID: 1,
+    email: 'user@test.com',
+    passwHash: 'password',
+    name: 'Bob Jones',
+    phone: '+12223334455',
+    address: 'New York, NY'
+}
