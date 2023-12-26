@@ -215,6 +215,10 @@ console.log(filteredFood);
 */
 
 //CODE HERE
+function filterByProperty(property, number) {
+    let result = foodArr.filter(food => food[property] > number);
+    return result;
+}
 
 
 /*
@@ -225,3 +229,11 @@ console.log(filteredFood);
 */
 
 //CODE HERE
+console.log("Filtered by price > 14:");
+console.log(filterByProperty('price', 14));
+
+console.log("Filtered by rating > 3:");
+console.log(filterByProperty('rating', 3));
+
+console.log("Filtered by popularity > 250:");
+console.log(filterByProperty('popularity', 250));
