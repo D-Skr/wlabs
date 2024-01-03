@@ -65,3 +65,7 @@ Solve problems, practice arrow function expression.
 ### 008 Animal Shelter Lab
 
 In this project, we’ll be using classes to organize data about animals in an animal shelter.
+
+### 009 HTML & CSS 1
+
+In this lab exercise, you will be creating your own page using HTML & CSS.
