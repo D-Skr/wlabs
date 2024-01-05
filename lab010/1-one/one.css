@@ -1,0 +1,11 @@
+/* 
+- the font is the default sans-serif font-family
+- the darker color is the css default "teal"
+- the lighter color is the css default "yellowgreen"
+- the top shadow is the css default "lightgray"
+- the bottom shadow is rgb(0, 75, 75)
+- the only other colors are black and white
+- use this background size and image to get the dotted background on the top half 
+    background-size: 20px 20px;
+    background-image: radial-gradient(circle, yellowgreen 1px, rgba(0, 0, 0, 0) 1px); 
+*/
