@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+}
+
+div {
+    height: 100px;
+    width: 500px;
+}
+
+.black {
+    background-color: black;
+}
+
+.red {
+   background-color: red;
+}
+
+.yellow {
+    background-color: yellow;
+}
