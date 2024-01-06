@@ -6,3 +6,7 @@ const printDigits = number => {
 }
 
 printDigits(312);
+
+//2
+//1
+//3
