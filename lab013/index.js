@@ -7,8 +7,10 @@ function addMovie(evt) {
     const movieTitle = document.createElement('span');
     movieTitle.textContent = inputField.value;
     movie.appendChild(movieTitle);
-    const deleteBtn = document.createElement('button');
 
+    movieTitle.addEventListener('click', crossOfMovie);
+
+    const deleteBtn = document.createElement('button');
     deleteBtn.textContent = 'X';
     deleteBtn.addEventListener('click', deleteMovie);
     movie.appendChild(deleteBtn);
@@ -21,4 +23,8 @@ form.addEventListener('submit', addMovie);
 
 function deleteMovie(evt) {
     evt.target.parentNode.remove();
+}
+
+function crossOfMovie(evt) {
+    evt.target.classList.toggle('checked');
 }
