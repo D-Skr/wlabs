@@ -73,3 +73,17 @@ In this lab exercise, you will be creating your own page using HTML & CSS.
 ### 010 Homework
 
 ### 011 HTML & CSS 2
+
+In this lab exercise, you will re-create four different layouts using HTML and CSS presented in the screenshot of each task in separate HTML documents.
+
+- Drill 01 - The Red DIV
+
+- Drill 02 - The Flag
+
+- Drill 03 - Neighboring Boxes
+
+- Drill 04 - Header and Footer
+
+- Games for practice:
+- - CSS selectors: https://flukeout.github.io
+- - Flexbox: https://flexboxfroggy.com
