@@ -115,3 +115,7 @@ printDigits(314)
 // 1
 // 3
 ```
+
+### 013 Movie List
+
+In this lab, you’ll practice more vanilla JS DOM manipulation by creating a simple Movie List project. The basic HTML and CSS have been provided for you, and you will be adding in the JavaScript to make the interface interactive. Users should be able to type in a movie title and click ‘add’ to add a movie onto the list. Clicking on the movie’s title should cross it off. Clicking the ‘x’ button next to the title should remove the movie from the list. We’ll also be making a dynamic notification.
