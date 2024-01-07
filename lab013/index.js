@@ -4,6 +4,7 @@ const message = document.querySelector('#message');
 function addMovie(evt) {
     evt.preventDefault();
     const inputField = document.querySelector('input');
+    if (inputField.value.length == 0) return alert('Please enter valid name');
     const movie = document.createElement('li');
     const movieTitle = document.createElement('span');
     movieTitle.textContent = inputField.value;
@@ -23,15 +24,15 @@ function addMovie(evt) {
 form.addEventListener('submit', addMovie);
 
 function deleteMovie(evt) {
+    message.textContent = `${evt.target.parentNode.firstChild.textContent} deleted!`;
     evt.target.parentNode.remove();
-    message.textContent = 'Movie deleted!';
     revealMessage();
 }
 
 function crossOfMovie(evt) {
     evt.target.classList.toggle('checked');
-    if (evt.target.classList.contains('checked')) message.textContent = 'Movie watched!';
-    else message.textContent = 'Movie added back';
+    if (evt.target.classList.contains('checked')) message.textContent = `${evt.target.textContent} watched!`;
+    else message.textContent = `${evt.target.textContent} added back`;
     revealMessage();
 }
 
