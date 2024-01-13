@@ -124,7 +124,7 @@ In this lab, you’ll practice more vanilla JS DOM manipulation by creating a si
 
 In the following lab, you will be practicing making use of event listeners to trigger events in JavaScript. You will combine this knowledge with what we just learned about making JavaScript requests using the axios library.
 
-- Part 1 - Start your lab server:
+- Part 1 - Start your lab server
 
   Navigate to folder with **_ package.json _** install packages with command
 
@@ -132,7 +132,7 @@ In the following lab, you will be practicing making use of event listeners to tr
 npm install
 ```
 
-- Part 2 - open HTML file in browser:
+- Part 2 - open HTML file in browser
 
   In the client folder find index.html and open in browser.
 
