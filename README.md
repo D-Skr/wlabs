@@ -132,5 +132,7 @@ npm install
 ```
 
 - Part 2 - open HTML file in browser
+  In the client folder find index.html and open in browser.
 
 - Part 3 - the fun stuff!
+  Open the script.js file and follow the instructions inside to complete the lab.
