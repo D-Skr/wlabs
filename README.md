@@ -119,3 +119,7 @@ printDigits(314)
 ### 013 Movie List
 
 In this lab, you’ll practice more vanilla JS DOM manipulation by creating a simple Movie List project. The basic HTML and CSS have been provided for you, and you will be adding in the JavaScript to make the interface interactive. Users should be able to type in a movie title and click ‘add’ to add a movie onto the list. Clicking on the movie’s title should cross it off. Clicking the ‘x’ button next to the title should remove the movie from the list. We’ll also be making a dynamic notification.
+
+### 014 Requests in JavaScript
+
+In the following lab, you will be practicing making use of event listeners to trigger events in JavaScript. You will combine this knowledge with what we just learned about making JavaScript requests using the axios library.
