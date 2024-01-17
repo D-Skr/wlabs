@@ -85,8 +85,8 @@ In this lab exercise, you will re-create four different layouts using HTML and C
 - Drill 04 - Header and Footer
 
 - Games for practice:
-- - CSS selectors: https://flukeout.github.io
-- - Flexbox: https://flexboxfroggy.com
+- CSS selectors: https://flukeout.github.io
+- Flexbox: https://flexboxfroggy.com
 
 ### 012 Problem solving
 
@@ -141,3 +141,13 @@ npm install
   Open the script.js file and follow the instructions inside to complete the lab.
 
   ### 015 Back End 1 (F&S)
+
+- Create a folder called server
+
+1. Inside the server folder create an index.js file
+
+2. Use npm to install express, then require it at the top of your index.js file
+
+3. Create a variable called app and set its value equal to express invoked
+
+4. Set your server up to accept JSON object responses
