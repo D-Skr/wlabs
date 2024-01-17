@@ -151,3 +151,9 @@ npm install
 3. Create a variable called app and set its value equal to express invoked
 
 4. Set your server up to accept JSON object responses
+
+5. Set your express server to listen to requests on port 4000, test with nodemon
+
+6. Create a get request for the endpoint ‘/api/users’ and another to get weather information
+
+7. Start your server up and check its functionality using the given HTML file
