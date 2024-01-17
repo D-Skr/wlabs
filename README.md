@@ -140,7 +140,7 @@ npm install
 
   Open the script.js file and follow the instructions inside to complete the lab.
 
-  ### 015 Back End 1 (F&S)
+### 015 Back End 1 (F&S)
 
 - Create a folder called server
 
