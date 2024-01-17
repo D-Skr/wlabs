@@ -85,8 +85,8 @@ In this lab exercise, you will re-create four different layouts using HTML and C
 - Drill 04 - Header and Footer
 
 - Games for practice:
-- CSS selectors: https://flukeout.github.io
-- Flexbox: https://flexboxfroggy.com
+  - CSS selectors: https://flukeout.github.io
+  - Flexbox: https://flexboxfroggy.com
 
 ### 012 Problem solving
 
