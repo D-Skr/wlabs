@@ -159,3 +159,5 @@ npm install
 7. Start your server up and check its functionality using the given HTML file
 
 ### 016 Back End 2 : Realty App
+
+- Application should be able to add a new house, including an address, a price, and an image url. It should be able to show all the houses in the database, as well as edit the prices (+- $10,000). It should also be able to delete houses from the database.
