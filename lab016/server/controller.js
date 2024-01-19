@@ -1,5 +1,7 @@
 const housesDB = require("../db.json");
 
+let globalID = 4;
+
 module.exports = {
   getHouses: (req, res) => {
     res.status(200).send(housesDB);
