@@ -1,4 +1,4 @@
-const housesDB = require("../db.json");
+const housesDB = require("./db.json");
 
 let globalID = 4;
 
@@ -23,6 +23,9 @@ module.exports = {
       price,
       imageURL,
     };
+    if (newHouse.price < 0) {
+      newHouse.price = 0;
+    }
     housesDB.push(newHouse);
     res.status(200).send(housesDB);
     globalID++;
@@ -34,11 +37,11 @@ module.exports = {
     const idx = housesDB.findIndex((elem) => +elem.id === +id);
 
     if (type === "plus") {
-      housesDB[idx].price += 10000;
+      housesDB[idx].price = +housesDB[idx].price + 10000;
       res.status(200).send(housesDB);
       return;
     } else if (type === "minus") {
-      housesDB[idx].price -= 1000;
+      housesDB[idx].price -= 10000;
       //price cannot be negative
       if (housesDB[idx].price < 0) {
         housesDB[idx].price = 0;
