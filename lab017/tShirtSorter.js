@@ -1,3 +1,6 @@
 function tShirtSorter(s) {
-  let result = "";
+  return s.split("").sort().reverse().join("");
 }
+
+let s = "smllmsllsssmmm";
+console.log(tShirtSorter(s));
