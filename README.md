@@ -167,5 +167,16 @@ npm install
 1.  Make Unique String
     Write a function to remove all duplciate letters from a provided string.
 2.  T-Shirt Sorter
+    Write a function that will take in a string containing only s, m, and l characters. Ex input:
+
+```
+  slsmmsllsmsmlmsls
+```
+
+Ex output:
+
+```
+sssssssmmmmmlllll
+```
 
 ### 018 APIs
