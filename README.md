@@ -165,6 +165,7 @@ npm install
 ### 017 Problem solving
 
 1.  Make Unique String
+    Write a function to remove all duplciate letters from a provided string.
 2.  T-Shirt Sorter
 
 ### 018 APIs
