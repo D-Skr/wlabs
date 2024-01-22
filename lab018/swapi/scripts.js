@@ -46,37 +46,6 @@ const planetsLimit = 60; // "count": 60,
 
 const baseUrl = "https://swapi.dev/api/";
 
-// button.addEventListener("click", () => {
-//   const inputField = document.querySelector("input");
-//   if (inputField.value.length == 0) {
-//     axios.get(baseUrl + resource).then((response) => {
-//       const count = response.data.count;
-//       const li = document.createElement("li");
-//       const text = document.createTextNode(`${resource}: ${count}`);
-//       li.appendChild(text);
-//       itemList.appendChild(li);
-//       //console.log(data.results);
-//       for (let i = 1; i <= count; i++) {
-//         outputHtml += `<p>${response.data.name}</p>`; // Assuming 'name' is the property you want
-//       }
-
-//       // Display the names
-//       itemList.innerHTML = outputHtml;
-//     });
-//     //   for (let i = 0; i <= 7; i++) {
-//     //     const name = data.results[i].name;
-//     //     console.log(name);
-//     //     const li = document.createElement("li");
-//     //     const text = document.createTextNode(`${name}`);
-//     //     li.appendChild(text);
-//     //     itemList.appendChild(li);
-//     //     //li.setAttribute('value', baseUrl + resource/)
-//   }
-// });
-//   }
-// });
-
-//good but not refreshed
 button.addEventListener("click", function (e) {
   const resource = document.querySelector("input[name=resource]:checked").value;
   const inputField = document.querySelector("input[name=search]");
@@ -84,7 +53,7 @@ button.addEventListener("click", function (e) {
     fetch(baseUrl + resource)
       .then((response) => response.json())
       .then((data) => {
-        const li = document.createElement("li");
+        const li = document.createElement("p");
         const text = document.createTextNode(`${resource}: ${data.count}`);
         li.appendChild(text);
         itemList.appendChild(li);
@@ -95,21 +64,20 @@ button.addEventListener("click", function (e) {
           const text = document.createTextNode(`${name}`);
           li.appendChild(text);
           itemList.appendChild(li);
-          //li.setAttribute('value', baseUrl + resource/)
         }
       });
   } else {
     fetch(baseUrl + resource + "/?search=" + inputField.value)
       .then((response) => response.json())
       .then((data) => {
-        const li = document.createElement("li");
+        const li = document.createElement("p");
         const text = document.createTextNode(`${resource}: ${data.count}`);
         li.appendChild(text);
         itemList.appendChild(li);
         for (let i = 0; i < data.count; i++) {
           const name = data.results[i].name;
-          console.log(name);
           const li = document.createElement("li");
+          li.setAttribute("value", `${name}`);
           const text = document.createTextNode(`${name}`);
           li.appendChild(text);
           itemList.appendChild(li);
@@ -117,3 +85,24 @@ button.addEventListener("click", function (e) {
       });
   }
 });
+
+//to do
+function getItemInfo(evt) {
+  const name = evt.target.getAttribute("value");
+  console.log(name + "clicked");
+
+  axios
+    .get(`${baseUrl}${resource}${name}`)
+    .then((res) => {
+      console.log(res.data);
+      const { name2, height, weight } = res.data;
+
+      const html_str = `
+            <h1>Name: ${name2}</h1>
+            <h4>Height: ${height}</h4>
+            <h4>Weight: ${weight}</h4>
+        `;
+      description.innerHTML = html_str;
+    })
+    .catch((err) => console.log(err));
+}
