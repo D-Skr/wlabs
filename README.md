@@ -180,3 +180,6 @@ sssssssmmmmmlllll
 ```
 
 ### 018 APIs
+
+1. SWAPI
+2. Social Mountain
