@@ -185,3 +185,5 @@ sssssssmmmmmlllll
 2. Social Mountain
 
 ### 019 Cybersecurity and Cryptography Lab
+
+Building a basic signup/login system — first an unsecure version without hashing passwords, and then a secure version with hashing passwords.
