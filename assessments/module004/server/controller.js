@@ -28,4 +28,14 @@ module.exports = {
 
     res.status(200).send(randomFortune);
   },
+
+  getName: (req, res) => {
+    const names = ["Bob", "Bill", "Billy", "Bobby", "noname"];
+
+    // choose random fortune
+    let randomIndex = Math.floor(Math.random() * names.length);
+    let randomName = names[randomIndex];
+
+    res.status(200).send(randomName);
+  },
 };
