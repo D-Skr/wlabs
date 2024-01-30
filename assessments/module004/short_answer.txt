@@ -1,6 +1,9 @@
 1) What is the difference between a client and a server? In the HTTP protocol,
 which one of these sends requests, and which one sends responses?
 
+2 parts of request/response pattern: client sends a request, server sends a response. 
+Server can be a client to another server if sends request to it. 
+Same for client.
 
 -------------------
 2) What do we mean by a "route" on a server?
