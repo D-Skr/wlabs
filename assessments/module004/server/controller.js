@@ -32,7 +32,7 @@ module.exports = {
   getName: (req, res) => {
     const names = ["Bob", "Bill", "Billy", "Bobby", "noname"];
 
-    // choose random fortune
+    // choose random name
     let randomIndex = Math.floor(Math.random() * names.length);
     let randomName = names[randomIndex];
 
