@@ -188,9 +188,9 @@ sssssssmmmmmlllll
 
 Building a basic signup/login system — first an unsecure version without hashing passwords, and then a secure version with hashing passwords.
 
-### 020
+### 020 SQL Basics
 
-### 021
+### 021 Data Modeling
 
 ### 022 Problem solving
 
