@@ -219,3 +219,5 @@ Your task is to return the names of all wishlisted presents that you might have 
 ```
 guessGifts(wishlist, presents); // must return ["Toy Car", "Mini Puzzle"]
 ```
+
+### 023 Sequelize Intro
