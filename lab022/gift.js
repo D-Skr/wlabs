@@ -15,7 +15,7 @@ const result = guessGifts(wishlist, presents);
 console.log(result);
 
 function guessGifts(wishlist, presents) {
-  let result = [];
+  const result = new Set();
   for (let wish of wishlist) {
     for (let present of presents) {
       if (
