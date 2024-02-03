@@ -11,9 +11,10 @@ var presents = [
   { size: "small", clatters: "yes", weight: "light" },
 ];
 
-const result = guessGifts(wishlist, presents);
-console.log(result);
+// const result = guessGifts(wishlist, presents);
+// console.log(result);
 
+// v.1
 function guessGifts(wishlist, presents) {
   const result = new Set();
   for (let wish of wishlist) {
@@ -29,3 +30,27 @@ function guessGifts(wishlist, presents) {
   }
   return result;
 }
+
+// v.2
+function doAttributesMatch(wish, present) {
+  return (
+    wish.size === present.size &&
+    wish.clatters === present.clatters &&
+    wish.weight === present.weight
+  );
+}
+
+function guessGifts2(wishlist, presents) {
+  return wishlist
+    .filter((wish) => {
+      // return TRUE if we are supposed to keep the item, i.e. the item has attributes matching one of the presents
+      return presents.some((present) => {
+        // return TRUE if any present satisfies the condition - do the attributes match.
+        return doAttributesMatch(wish, present);
+      });
+    })
+    .map((wish) => wish.name);
+}
+
+const result2 = guessGifts2(wishlist, presents);
+console.log(result2);
