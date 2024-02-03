@@ -15,16 +15,17 @@ const result = guessGifts(wishlist, presents);
 console.log(result);
 
 function guessGifts(wishlist, presents) {
-  const result = [];
-  for (let wish in wishlist) {
-    for (present in presents) {
+  let result = [];
+  for (let wish of wishlist) {
+    for (let present of presents) {
       if (
-        wish.size === present.size &&
-        wish.clatters === present.clutters &&
-        wish.weight === present.weight
+        wish.size == present.size &&
+        wish.clutters == present.clutters &&
+        wish.weight == present.weight
       ) {
         result.push(wish.name);
       }
     }
   }
+  return result;
 }
