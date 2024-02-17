@@ -228,7 +228,9 @@ In this lab, you’ll continue using the database we set up during the demo for 
 
 ### 025 Automation Lab
 
-### 026 Next Perfect Square
+### 026 Problem Solving
+
+1. Next Perfect Square
 
 Write a function in perfectSquare.js that finds the next perfect square after the one passed in as an argument and returns it.Recall that an integral perfect square is an integer n such that sqrt(n) is also an integer (look at the examples if this sounds confusing).If the parameter is itself not a perfect square then -1 should be returned. You may assume the parameter is non-negative.
 For example:
