@@ -244,9 +244,10 @@ perfectSquare(3000) // should return -1 (sq root of 3000 is 54.77)
 ```
 
 2. Sort by Product
-   Your task is to sort an array of integer numbers by the product (multiplication) of the value and the index.
-   For sorting the index starts at 1, NOT at 0! The sorting has to be ascending. The array will never be null and will always contain numbers.
-   Sample input:
+
+Your task is to sort an array of integer numbers by the product (multiplication) of the value and the index.
+For sorting the index starts at 1, NOT at 0! The sorting has to be ascending. The array will never be null and wilalways contain numbers.
+Sample input:
 
 ```
 [23, 2, 3, 4, 5]
