@@ -249,7 +249,7 @@ perfectSquare(3000) // should return -1 (sq root of 3000 is 54.77)
    Sample input:
 
 ```
-23, 2, 3, 4, 5
+[23, 2, 3, 4, 5]
 ```
 
 Product of value and index:
@@ -265,5 +265,5 @@ Product of value and index:
 Sample output:
 
 ```
-2, 3, 4, 23, 5
+[2, 3, 4, 23, 5]
 ```
