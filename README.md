@@ -227,3 +227,5 @@ In this lab, you’ll continue using the database we set up during the demo for 
 ### 024 Testing Lab
 
 ### 025 Automation Lab
+
+### 026 Next Perfect Square
