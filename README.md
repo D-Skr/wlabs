@@ -255,11 +255,11 @@ perfectSquare(3000) // should return -1 (sq root of 3000 is 54.77)
 Product of value and index:
 
 ```
-    23 => 23 * 1 = 23 -> Output-Pos 4
-    2 => 2 * 2 = 4 -> Output-Pos 1
-    3 => 3 * 3 = 9 -> Output-Pos 2
-    4 => 4 * 4 = 16 -> Output-Pos 3
-    5 => 5 * 5 = 25 -> Output-Pos 5
+23 => 23 * 1 = 23 -> Output-Pos 4
+2 => 2 * 2 = 4 -> Output-Pos 1
+3 => 3 * 3 = 9 -> Output-Pos 2
+4 => 4 * 4 = 16 -> Output-Pos 3
+5 => 5 * 5 = 25 -> Output-Pos 5
 ```
 
 Sample output:
