@@ -7,4 +7,4 @@ function sortByProduct(arr) {
 }
 
 let arr1 = [1, 2, 3, 4, 5];
-console.log(sortByProduct(arr1));
+console.log(sortByProduct(arr1)); //[ 1, 4, 9, 16, 25 ]
