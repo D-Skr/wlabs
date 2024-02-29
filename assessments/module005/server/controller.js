@@ -228,7 +228,20 @@ module.exports = {
       })
       .catch((err) => console.log("error seeding DB", err));
   },
-  getCountries: (req, res) => {},
+  getCountries: (req, res) => {
+    const query = `
+        SELECT * FROM countries;
+    `;
+
+    sequelize
+      .query(query)
+      .then((dbRes) => {
+        res.status(200).send(dbRes[0]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
   getCities: (req, res) => {},
   createCity: (req, res) => {},
   deleteCity: (req, res) => {},
