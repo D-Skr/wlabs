@@ -228,4 +228,8 @@ module.exports = {
       })
       .catch((err) => console.log("error seeding DB", err));
   },
+  getCountries: (req, res) => {},
+  getCities: (req, res) => {},
+  createCity: (req, res) => {},
+  deleteCity: (req, res) => {},
 };
