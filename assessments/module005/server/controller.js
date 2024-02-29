@@ -1,12 +1,14 @@
-require('dotenv').config()
-const {CONNECTION_STRING} = process.env
-const Sequelize = require('sequelize')
+require("dotenv").config();
+const { CONNECTION_STRING } = process.env;
+const Sequelize = require("sequelize");
 
 const sequelize = new Sequelize(CONNECTION_STRING);
 
 module.exports = {
-    seed: (req, res) => {
-        sequelize.query(`
+  seed: (req, res) => {
+    sequelize
+      .query(
+        `
             drop table if exists cities;
             drop table if exists countries;
 
@@ -15,7 +17,12 @@ module.exports = {
                 name varchar
             );
 
-            *****YOUR CODE HERE*****
+            create table cities (
+                city_id serial primary key,
+                name varchar,
+                rating int,
+                country_id int REFERENCES country(country_id)
+            );
 
             insert into countries (name)
             values ('Afghanistan'),
@@ -213,9 +220,12 @@ module.exports = {
             ('Yemen'),
             ('Zambia'),
             ('Zimbabwe');
-        `).then(() => {
-            console.log('DB seeded!')
-            res.sendStatus(200)
-        }).catch(err => console.log('error seeding DB', err))
-    }
-}
+        `
+      )
+      .then(() => {
+        console.log("DB seeded!");
+        res.sendStatus(200);
+      })
+      .catch((err) => console.log("error seeding DB", err));
+  },
+};
