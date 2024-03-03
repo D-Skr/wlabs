@@ -243,7 +243,20 @@ module.exports = {
       });
   },
 
-  getCities: (req, res) => {},
+  getCities: (req, res) => {
+    const query = `
+    SELECT * FROM cities;
+`;
+
+    sequelize
+      .query(query)
+      .then((dbRes) => {
+        res.status(200).send(dbRes[0]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
 
   createCity: (req, res) => {
     const { name, rating, countryId } = req.body;
