@@ -242,7 +242,24 @@ module.exports = {
         console.log(err);
       });
   },
+
   getCities: (req, res) => {},
-  createCity: (req, res) => {},
+
+  createCity: (req, res) => {
+    const { name, rating, countryId } = req.body;
+    const query = `
+        INSERT INTO cities (name, rating, country_id)
+        VALUES ('${name}', '${rating}', '${countryId}');
+    `;
+
+    sequelize
+      .query(query)
+      .then((dbRes) => {
+        res.status(200).send(dbRes[0]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
   deleteCity: (req, res) => {},
 };
