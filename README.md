@@ -268,3 +268,7 @@ Sample output:
 ```
 [2, 3, 4, 23, 5]
 ```
+
+### 027 Problem Solving
+
+Road Trip Time: You are planning a road trip (in a time before Google Maps) and want to know how long each segment of the trip is going to be.
