@@ -40,7 +40,7 @@ const tripTime = (arr) => {
   result.totalTime = result.segmentTimes.reduce((aggregation, current) => {
     return aggregation + current;
   }, 0);
-  console.log(result);
+  //console.log(result);
   return Math.round(result.totalTime); //10
 };
 
