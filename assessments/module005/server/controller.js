@@ -277,5 +277,18 @@ module.exports = {
         console.log(err);
       });
   },
-  deleteCity: (req, res) => {},
+  deleteCity: (req, res) => {
+    const { id } = req.params;
+    const query = `
+    DELETE FROM cities WHERE city_id = ${id}
+    `;
+    sequelize
+      .query(query)
+      .then((dbRes) => {
+        res.status(200).send(dbRes[0]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
 };
