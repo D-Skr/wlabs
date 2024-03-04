@@ -220,6 +220,11 @@ module.exports = {
             ('Yemen'),
             ('Zambia'),
             ('Zimbabwe');
+
+            insert into cities (name, rating, country_id)
+            values ('New York', 5, 187),
+            ('Moscow', 2, 144),
+            ('Tokyo', 4, 86);
         `
       )
       .then(() => {
@@ -248,7 +253,8 @@ module.exports = {
     SELECT ci.city_id, ci.name AS city, co.name AS country, ci.rating AS rating 
 	FROM public.cities ci 
 	JOIN countries co
-	ON ci.country_id = co.country_id;
+	ON ci.country_id = co.country_id
+    ORDER by rating DESC;
 `;
 
     sequelize
