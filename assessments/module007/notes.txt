@@ -1,0 +1,27 @@
+Timing Information:
+-------------------
+
+Extra Large Array
+-----------------
+Time to run code with push():
+Time to run code with unshift():
+
+Large Array
+-----------
+Time to run code with push():
+Time to run code with unshift():
+
+Medium Array
+------------
+Time to run code with push():
+Time to run code with unshift():
+
+Small Array
+-----------
+Time to run code with push():
+Time to run code with unshift():
+
+Tiny Array
+----------
+Time to run code with push():
+Time to run code with unshift():
