@@ -9,7 +9,7 @@ const playerRecord = {
 const app = express();
 
 app.use(express.json());
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + "/public"));
 // Add up the total health of all the robots
 const calculateTotalHealth = (robots) =>
   robots.reduce((total, { health }) => total + health, 0);
@@ -36,6 +36,7 @@ const calculateHealthAfterAttack = ({ playerDuo, compDuo }) => {
 };
 
 app.get("/api/robots", (req, res) => {
+  const botsArr = bots; //fix ERROR GETTING BOTS ReferenceError: botsArr is not defined
   try {
     res.status(200).send(botsArr);
   } catch (error) {
@@ -68,7 +69,7 @@ app.post("/api/duel", (req, res) => {
       playerRecord.losses += 1;
       res.status(200).send("You lost!");
     } else {
-      playerRecord.losses += 1;
+      playerRecord.wins += 1;
       res.status(200).send("You won!");
     }
   } catch (error) {
