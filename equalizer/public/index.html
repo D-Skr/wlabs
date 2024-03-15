@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Equilizer</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Navigation bar -->
+        <nav>
+            <button id="newCalculation">New</button>
+            <button id="login">Login</button>
+            <button id="history">History</button>
+        </nav>
+        <!-- Main content -->
+        <div>
+            <input type="date" id="expenseDate">
+            <input type="text" id="expenseDescription" placeholder="Description">
+            <!-- Participants and expenses will be dynamically added here -->
+            <div id="participants"></div>
+            <div id="averageExpense">Average Expense: $0</div>
+            <div id="settlements"></div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
