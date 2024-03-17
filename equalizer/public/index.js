@@ -1,155 +1,207 @@
-// Array to store participants and their expenses
-let participants = [];
+// document.addEventListener("DOMContentLoaded", () => {
+//   const guestBtn = document.getElementById("guest-btn");
+//   const loginBtn = document.getElementById("login-btn");
+//   const signupBtn = document.getElementById("signup-btn");
+//   const expenseForm = document.getElementById("expense-form");
+//   const addParticipantBtn = document.getElementById("add-participant-btn");
+//   const participantNameInput = document.getElementById("participant-name");
+//   const participantsList = document.getElementById("participants-list");
+//   const equalizeBtn = document.getElementById("equalize-btn");
+//   const results = document.getElementById("results");
 
-// Function to add a new participant
-function addParticipant(name) {
-  participants.push({ name, expenses: [] });
-  renderParticipants();
-}
+//   guestBtn.addEventListener("click", () => {
+//     expenseForm.style.display = "block";
+//     expenseForm.classList.add("fade-in");
+//   });
 
-// Function to add an expense to a participant
-function addExpense(participantName, amount, description) {
-  const participant = participants.find((p) => p.name === participantName);
-  if (participant) {
-    participant.expenses.push({ amount, description });
-    renderParticipants();
+//   addParticipantBtn.addEventListener("click", () => {
+//     const name = participantNameInput.value.trim();
+//     if (name) {
+//       const listItem = document.createElement("li");
+//       listItem.textContent = name;
+//       participantsList.appendChild(listItem);
+//       participantNameInput.value = "";
+//     }
+//     if (participantsList.childElementCount >= 2) {
+//       equalizeBtn.disabled = false;
+//     }
+//   });
+
+//   equalizeBtn.addEventListener("click", () => {
+//     // Example equalization logic
+//     results.textContent = "Equalization results will be displayed here.";
+//     results.style.display = "block";
+//     results.classList.add("fade-in");
+//   });
+// });
+
+// import axios from "axios";
+document.addEventListener("DOMContentLoaded", () => {
+  const guestBtn = document.getElementById("guest-btn");
+  const expenseForm = document.getElementById("expense-form");
+  const addParticipantBtn = document.getElementById("add-participant-btn");
+  const participantNameInput = document.getElementById("participant-name");
+  const participantsList = document.getElementById("participants-list");
+  const equalizeBtn = document.getElementById("equalize-btn");
+  const resultsContainer = document.getElementById("results");
+  // const axios = require("axios");
+
+  guestBtn.addEventListener("click", () => {
+    expenseForm.style.display = "block";
+    expenseForm.classList.add("fade-in");
+  });
+
+  // addParticipantBtn.addEventListener("click", () => {
+  //   const name = participantNameInput.value.trim();
+  //   if (name) {
+  //     const listItem = document.createElement("li");
+  //     listItem.classList.add("participant-item");
+  //     listItem.textContent = name;
+  //     participantsList.appendChild(listItem);
+  //     participantNameInput.value = "";
+
+  //     updateEqualizeButtonState();
+  //   }
+  // });
+
+  addParticipantBtn.addEventListener("click", () => {
+    const name = participantNameInput.value.trim();
+    if (name) {
+      const listItem = document.createElement("div");
+      listItem.classList.add(
+        "participant-item",
+        "bg-gray-200",
+        "p-4",
+        "rounded-lg",
+        "shadow",
+        "mb-4"
+      );
+      listItem.innerHTML = `
+            <div class="flex justify-between items-center mb-2">
+                <span class="participant-name">${name}</span>
+                <div>
+                    <button class="edit-btn bg-blue-500 text-white p-1 rounded">✏️</button>
+                    <button class="delete-btn bg-red-500 text-white p-1 rounded">🗑️</button>
+                </div>
+            </div>
+            <ul class="expenses-list list-disc pl-4"></ul>
+            <div class="flex mt-2">
+                <input type="number" class="expense-input border border-gray-300 p-1 rounded w-full mr-2" placeholder="Add expenses">
+                <button class="add-expense-btn bg-green-500 text-white p-1 rounded">+</button>
+            </div>
+        `;
+      participantsList.appendChild(listItem);
+      participantNameInput.value = "";
+
+      listItem.querySelector(".delete-btn").addEventListener("click", () => {
+        if (confirm(`Are you sure you want to remove ${name}?`)) {
+          listItem.remove();
+          updateEqualizeButtonState();
+        }
+      });
+
+      const addExpenseBtn = listItem.querySelector(".add-expense-btn");
+      addExpenseBtn.addEventListener("click", () => {
+        const expenseInput = listItem.querySelector(".expense-input");
+        const expenseValue = parseFloat(expenseInput.value);
+        if (!isNaN(expenseValue) && expenseValue > 0) {
+          const expenseItem = document.createElement("li");
+          expenseItem.classList.add("expense-item");
+          expenseItem.textContent = `$${expenseValue.toFixed(2)}`;
+          listItem.querySelector(".expenses-list").appendChild(expenseItem);
+
+          expenseInput.value = "";
+        }
+      });
+
+      updateEqualizeButtonState();
+    }
+  });
+
+  // equalizeBtn.addEventListener("click", () => {
+  //   const participants = Array.from(
+  //     participantsList.querySelectorAll(".participant-item")
+  //   ).map((item) => {
+  //     return {
+  //       name: item.textContent,
+  //       expense:
+  //         parseFloat(prompt(`Enter expense for ${item.textContent}:`, "0")) ||
+  //         0,
+  //     };
+  //   });
+
+  //   fetch("/guest/manageExpenses", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({ participants }),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       if (data.message === "Expenses equalized successfully for guest") {
+  //         displayResults(data);
+  //       } else {
+  //         console.error("Error equalizing expenses:", data.message);
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error:", error);
+  //     });
+  // });
+
+  equalizeBtn.addEventListener("click", () => {
+    const participants = Array.from(
+      participantsList.querySelectorAll(".participant-item")
+    ).map((item) => {
+      const name = item.querySelector(".participant-name").textContent;
+      const expenses = Array.from(item.querySelectorAll(".expense-item")).map(
+        (expenseItem) => parseFloat(expenseItem.textContent.slice(1))
+      );
+      return { name, expenses };
+    });
+
+    axios
+      .post("/guest/expenses", { participants })
+      .then((response) => {
+        console.log("inside!!axios");
+        const data = response.data;
+        if (data.message === "Expenses equalized successfully for guest") {
+          displayResults(data);
+        } else {
+          console.error("Error equalizing expenses:", data.message);
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  });
+
+  function updateEqualizeButtonState() {
+    const participantCount =
+      participantsList.querySelectorAll(".participant-item").length;
+    equalizeBtn.disabled = participantCount < 2;
   }
-}
 
-// Function to render participants and their expenses
-function renderParticipants() {
-  const participantsContainer = document.querySelector("#participants");
-  participantsContainer.innerHTML = "";
-
-  participants.forEach((participant) => {
-    const participantDiv = document.createElement("div");
-    participantDiv.className = "participant";
-    participantDiv.innerHTML = `<strong>${participant.name}</strong>`;
-
-    const expensesList = document.createElement("ul");
-    participant.expenses.forEach((expense) => {
-      const expenseItem = document.createElement("li");
-      expenseItem.innerHTML = `${expense.description}: $${expense.amount}`;
-      expensesList.appendChild(expenseItem);
-    });
-
-    participantDiv.appendChild(expensesList);
-    participantsContainer.appendChild(participantDiv);
-  });
-}
-
-// Function to calculate total expenses
-function calculateTotalExpenses() {
-  let total = 0;
-  participants.forEach((participant) => {
-    participant.expenses.forEach((expense) => {
-      total += expense.amount;
-    });
-  });
-  return total;
-}
-
-// Function to calculate average expense per person
-function calculateAverageExpense() {
-  const total = calculateTotalExpenses();
-  return total / participants.length;
-}
-
-// Example usage
-const totalExpenses = calculateTotalExpenses();
-const averageExpense = calculateAverageExpense();
-console.log(`Total Expenses: $${totalExpenses}`);
-console.log(`Average Expense: $${averageExpense}`);
-
-// Function to determine how much each person should pay or receive
-function settleExpenses() {
-  const averageExpense = calculateAverageExpense();
-  const settlements = participants.map((participant) => {
-    const totalExpense = participant.expenses.reduce(
-      (acc, expense) => acc + expense.amount,
-      0
+  function displayResults(results) {
+    resultsContainer.innerHTML = `
+          <p>Total expenses: $${results.totalExpenses}</p>
+          <p>AVG: $${results.avgExpense}</p>
+          ${results.equalizedResult
+            .map(
+              (transaction) => `
+              <p>${transaction.from} owes ${transaction.to}: $${transaction.amount}</p>
+          `
+            )
+            .join("")}
+      `;
+    resultsContainer.style.display = "block";
+    resultsContainer.classList.add(
+      "fade-in",
+      "participant-item",
+      "bg-gray-200",
+      "p-12",
+      "rounded-lg",
+      "shadow",
+      "mb-4"
     );
-    const balance = totalExpense - averageExpense;
-    return { name: participant.name, balance };
-  });
-
-  // Sorting settlements by balance
-  settlements.sort((a, b) => a.balance - b.balance);
-
-  const transactions = [];
-  let i = 0;
-  let j = settlements.length - 1;
-
-  // Matching payers with receivers
-  while (i < j) {
-    const payer = settlements[i];
-    const receiver = settlements[j];
-    const amount = Math.min(-payer.balance, receiver.balance);
-
-    payer.balance += amount;
-    receiver.balance -= amount;
-
-    transactions.push({ from: payer.name, to: receiver.name, amount });
-
-    if (payer.balance === 0) {
-      i++;
-    }
-    if (receiver.balance === 0) {
-      j--;
-    }
   }
-
-  return transactions;
-}
-
-// Example usage
-const transactions = settleExpenses();
-console.log(transactions);
-
-// Function to render settlements
-function renderSettlements() {
-  const settlementsContainer = document.querySelector("#settlements");
-  settlementsContainer.innerHTML = "";
-
-  const transactions = settleExpenses();
-  transactions.forEach((transaction) => {
-    const transactionDiv = document.createElement("div");
-    transactionDiv.innerHTML = `${transaction.from} owes ${
-      transaction.to
-    } $${transaction.amount.toFixed(2)}`;
-    settlementsContainer.appendChild(transactionDiv);
-  });
-}
-
-function updateAverageExpenseDisplay() {
-    const averageExpense = calculateAverageExpense();
-    const averageExpenseElement = document.querySelector('#averageExpense');
-    averageExpenseElement.innerHTML = `Average Expense: $${averageExpense.toFixed(2)}`;
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  // Example usage
-  addParticipant("John");
-  addExpense("John", 120, "Cafe");
-  addParticipant("Bill");
-  addExpense("Bill", 65.5, "Cafe");
-  addParticipant("Anna");
-  addExpense("Anna", 34.5, "Cafe");
-  addParticipant("Ted");
-  addExpense("Tedl", 0, "Cafe");
-  updateAverageExpenseDisplay();
-
-  // Add a div to display participants in index.html
-  // Just before the closing </body> tag, add:
-  /*
-<div id="participants"></div>
-*/
-  // Call this function whenever you want to update the settlements display
-  renderSettlements();
-
-  // Add a div to display settlements in index.html
-  // Just after the <div id="participants"></div>, add:
-  /*
-<div id="settlements"></div>
-*/
 });

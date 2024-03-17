@@ -4,29 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Great Equilizer</title>
-    <link href="styles.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Equalizer</title>
 </head>
 
-<body>
-    <div id="app">
-        <!-- Navigation bar -->
-        <nav>
-            <button id="newCalculation">New</button>
-            <button id="login">Login</button>
-            <button id="history">History</button>
-        </nav>
-        <!-- Main content -->
-        <div>
-            <input type="date" id="expenseDate">
-            <input type="text" id="expenseDescription" placeholder="Description">
-            <!-- Participants and expenses will be dynamically added here -->
-            <div id="participants"></div>
-            <div id="averageExpense">Average Expense: $0</div>
-            <div id="settlements"></div>
-        </div>
+<body class="bg-img">
+    <div id="app" class="max-w-lg mx-auto p-4 bg-white shadow-lg mt-10 rounded-lg">
+        <header>
+            <h1 class="text-4xl font-bold text-center">Equalizer</h1>
+            <p class="text-sm text-center text-gray-600 mt-2">"Math is the great equalizer. If you can do the numbers,
+                the boys have to respect you." - Audrey MacLean</p>
+        </header>
+
+        <main class="mt-6">
+            <div class="flex justify-center space-x-4">
+                <button id="guest-btn" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Guest</button>
+                <button id="login-btn" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Log
+                    In</button>
+                <button id="signup-btn" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Sign
+                    Up</button>
+            </div>
+
+            <div id="expense-form" class="mt-6 m-20" style="display: none;">
+                <div class="flex justify-center space-x-4">
+                    <input type="text" id="participant-name" placeholder="Add name of participant"
+                        class="border border-gray-300 p-2 rounded">
+                    <button id="add-participant-btn"
+                        class="bg-purple-500 text-white px-5 py-2 rounded hover:bg-purple-600">+</button>
+                </div>
+                <div id="participants-list" class="list-disc mt-4">
+                    <!-- Participants will be added here dynamically -->
+                </div>
+                <div class="flex justify-center ">
+                    <button id="equalize-btn" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 mt-4"
+                        disabled>EQUALIZE</button>
+                </div>
+                <div id="results" class="mt-4 bg-gray-200 rounded" style="display: none;">
+                    <!-- Equalization results will be displayed here -->
+                </div>
+            </div>
+        </main>
     </div>
-    <script src="index.js"></script>
+    <script src="./index.js"></script>
+    <!-- <script src="../node_modules/axios/dist/axios.min.js"></script> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>
 
 </html>
