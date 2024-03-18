@@ -1,42 +1,5 @@
-// document.addEventListener("DOMContentLoaded", () => {
-//   const guestBtn = document.getElementById("guest-btn");
-//   const loginBtn = document.getElementById("login-btn");
-//   const signupBtn = document.getElementById("signup-btn");
-//   const expenseForm = document.getElementById("expense-form");
-//   const addParticipantBtn = document.getElementById("add-participant-btn");
-//   const participantNameInput = document.getElementById("participant-name");
-//   const participantsList = document.getElementById("participants-list");
-//   const equalizeBtn = document.getElementById("equalize-btn");
-//   const results = document.getElementById("results");
-
-//   guestBtn.addEventListener("click", () => {
-//     expenseForm.style.display = "block";
-//     expenseForm.classList.add("fade-in");
-//   });
-
-//   addParticipantBtn.addEventListener("click", () => {
-//     const name = participantNameInput.value.trim();
-//     if (name) {
-//       const listItem = document.createElement("li");
-//       listItem.textContent = name;
-//       participantsList.appendChild(listItem);
-//       participantNameInput.value = "";
-//     }
-//     if (participantsList.childElementCount >= 2) {
-//       equalizeBtn.disabled = false;
-//     }
-//   });
-
-//   equalizeBtn.addEventListener("click", () => {
-//     // Example equalization logic
-//     results.textContent = "Equalization results will be displayed here.";
-//     results.style.display = "block";
-//     results.classList.add("fade-in");
-//   });
-// });
-
-// import axios from "axios";
 document.addEventListener("DOMContentLoaded", () => {
+  const homeBtn = document.getElementById("home-btn");
   const guestBtn = document.getElementById("guest-btn");
   const expenseForm = document.getElementById("expense-form");
   const addParticipantBtn = document.getElementById("add-participant-btn");
@@ -44,117 +7,156 @@ document.addEventListener("DOMContentLoaded", () => {
   const participantsList = document.getElementById("participants-list");
   const equalizeBtn = document.getElementById("equalize-btn");
   const resultsContainer = document.getElementById("results");
-  // const axios = require("axios");
+  const header = document.querySelector("header");
+  const loginButtons = document.getElementById("login");
+
+  // Reload the page to return to the home screen
+  homeBtn.addEventListener("click", () => {
+    window.location.reload();
+  });
 
   guestBtn.addEventListener("click", () => {
+    header.style.display = "none";
+    loginButtons.style.display = "none";
     expenseForm.style.display = "block";
     expenseForm.classList.add("fade-in");
   });
 
-  // addParticipantBtn.addEventListener("click", () => {
-  //   const name = participantNameInput.value.trim();
-  //   if (name) {
-  //     const listItem = document.createElement("li");
-  //     listItem.classList.add("participant-item");
-  //     listItem.textContent = name;
-  //     participantsList.appendChild(listItem);
-  //     participantNameInput.value = "";
-
-  //     updateEqualizeButtonState();
-  //   }
-  // });
-
   addParticipantBtn.addEventListener("click", () => {
-    const name = participantNameInput.value.trim();
+    const name =
+      participantNameInput.value.trim()[0].toUpperCase() +
+      participantNameInput.value.trim().slice(1).toLowerCase();
     if (name) {
-      const listItem = document.createElement("div");
-      listItem.classList.add(
+      const participantDiv = document.createElement("div");
+      participantDiv.classList.add(
         "participant-item",
         "bg-gray-200",
+        "flex",
+        "flex-col",
         "p-4",
         "rounded-lg",
         "shadow",
-        "mb-4"
+        "mb-4",
+        "fade-in"
       );
-      listItem.innerHTML = `
-            <div class="flex justify-between items-center mb-2">
-                <span class="participant-name">${name}</span>
-                <div>
-                    <button class="edit-btn bg-blue-500 text-white p-1 rounded">✏️</button>
-                    <button class="delete-btn bg-red-500 text-white p-1 rounded">🗑️</button>
-                </div>
-            </div>
-            <ul class="expenses-list list-disc pl-4"></ul>
-            <div class="flex mt-2">
-                <input type="number" class="expense-input border border-gray-300 p-1 rounded w-full mr-2" placeholder="Add expenses">
-                <button class="add-expense-btn bg-green-500 text-white p-1 rounded">+</button>
-            </div>
-        `;
-      participantsList.appendChild(listItem);
+
+      const topRowDiv = document.createElement("div");
+      topRowDiv.classList.add("flex", "items-center", "mb-4");
+      participantDiv.appendChild(topRowDiv);
+
+      const nameInput = document.createElement("input");
+      nameInput.type = "text";
+      nameInput.value = name;
+      nameInput.classList.add(
+        "border",
+        "border-gray-300",
+        "p-2",
+        "rounded",
+        "mr-2",
+        "flex-grow",
+        "fade-in"
+      );
+      topRowDiv.appendChild(nameInput);
+
+      const deleteBtn = document.createElement("button");
+      deleteBtn.textContent = "-";
+      deleteBtn.classList.add(
+        "bg-red-500",
+        "text-white",
+        "w-8",
+        "h-8",
+        "rounded",
+        "hover:bg-red-600"
+      );
+      deleteBtn.addEventListener("click", () => {
+        participantDiv.remove();
+        updateEqualizeButtonState();
+      });
+      topRowDiv.appendChild(deleteBtn);
+
+      const expensesDiv = document.createElement("div");
+      expensesDiv.classList.add("flex", "flex-col");
+      participantDiv.appendChild(expensesDiv);
+
+      addExpenseInput(expensesDiv, participantDiv);
+
+      participantsList.appendChild(participantDiv);
       participantNameInput.value = "";
-
-      listItem.querySelector(".delete-btn").addEventListener("click", () => {
-        if (confirm(`Are you sure you want to remove ${name}?`)) {
-          listItem.remove();
-          updateEqualizeButtonState();
-        }
-      });
-
-      const addExpenseBtn = listItem.querySelector(".add-expense-btn");
-      addExpenseBtn.addEventListener("click", () => {
-        const expenseInput = listItem.querySelector(".expense-input");
-        const expenseValue = parseFloat(expenseInput.value);
-        if (!isNaN(expenseValue) && expenseValue > 0) {
-          const expenseItem = document.createElement("li");
-          expenseItem.classList.add("expense-item");
-          expenseItem.textContent = `$${expenseValue.toFixed(2)}`;
-          listItem.querySelector(".expenses-list").appendChild(expenseItem);
-
-          expenseInput.value = "";
-        }
-      });
 
       updateEqualizeButtonState();
     }
   });
 
-  // equalizeBtn.addEventListener("click", () => {
-  //   const participants = Array.from(
-  //     participantsList.querySelectorAll(".participant-item")
-  //   ).map((item) => {
-  //     return {
-  //       name: item.textContent,
-  //       expense:
-  //         parseFloat(prompt(`Enter expense for ${item.textContent}:`, "0")) ||
-  //         0,
-  //     };
-  //   });
+  function addExpenseInput(expensesDiv, participantDiv) {
+    const expenseInputDiv = document.createElement("div");
+    expenseInputDiv.classList.add("flex", "items-center", "mb-4", "fade-in");
+    expensesDiv.appendChild(expenseInputDiv);
 
-  //   fetch("/guest/manageExpenses", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify({ participants }),
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       if (data.message === "Expenses equalized successfully for guest") {
-  //         displayResults(data);
-  //       } else {
-  //         console.error("Error equalizing expenses:", data.message);
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error:", error);
-  //     });
-  // });
+    const expenseInput = document.createElement("input");
+    expenseInput.type = "number";
+    expenseInput.placeholder = "Add expense";
+    expenseInput.classList.add(
+      "expense-input",
+      "border",
+      "border-gray-300",
+      "p-2",
+      "rounded",
+      "mr-2",
+      "flex-grow"
+    );
+    expenseInputDiv.appendChild(expenseInput);
+
+    const addExpenseBtn = document.createElement("button");
+    addExpenseBtn.textContent = "+";
+    addExpenseBtn.classList.add(
+      "add-expense-btn",
+      "bg-green-500",
+      "text-white",
+      "w-8",
+      "h-8",
+      "rounded",
+      "hover:bg-green-600"
+    );
+    addExpenseBtn.addEventListener("click", () => {
+      const expenseValue = parseFloat(expenseInput.value);
+      if (!isNaN(expenseValue) && expenseValue > 0) {
+        expenseInput.setAttribute("readonly", "readonly");
+        addExpenseBtn.textContent = "-";
+        addExpenseBtn.classList.remove("bg-green-500", "hover:bg-green-600");
+        addExpenseBtn.classList.add("bg-red-500", "hover:bg-red-600");
+        addExpenseBtn.removeEventListener("click", addExpenseBtn.clickEvent);
+        addExpenseBtn.addEventListener("click", () => {
+          expenseInputDiv.remove();
+          // Check if there are no more expense inputs, then add a new empty input field
+          if (
+            expensesDiv.querySelectorAll(".expense-input[readonly]").length ===
+            0
+          ) {
+            addExpenseInput(expensesDiv, participantDiv);
+          }
+        });
+
+        // Check if there is already an empty input field, if not, add a new one
+        const emptyInputs = expensesDiv.querySelectorAll(
+          ".expense-input:not([readonly])"
+        );
+        if (emptyInputs.length === 0) {
+          addExpenseInput(expensesDiv, participantDiv);
+        }
+      }
+    });
+    addExpenseBtn.clickEvent = addExpenseBtn.onclick;
+
+    expenseInputDiv.appendChild(addExpenseBtn);
+  }
 
   equalizeBtn.addEventListener("click", () => {
     const participants = Array.from(
       participantsList.querySelectorAll(".participant-item")
     ).map((item) => {
-      const name = item.querySelector(".participant-name").textContent;
-      const expenses = Array.from(item.querySelectorAll(".expense-item")).map(
-        (expenseItem) => parseFloat(expenseItem.textContent.slice(1))
+      const name = item.querySelector("input[type='text']").value;
+      const expenses = Array.from(item.querySelectorAll(".expense-input")).map(
+        (expenseInput) => parseFloat(expenseInput.value)
       );
       return { name, expenses };
     });
@@ -198,7 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "fade-in",
       "participant-item",
       "bg-gray-200",
-      "p-12",
+      "p-8",
       "rounded-lg",
       "shadow",
       "mb-4"

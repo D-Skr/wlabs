@@ -6,28 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
-    <title>Equalizer</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>EQ</title>
 </head>
 
 <body class="bg-img">
-    <div id="app" class="max-w-lg mx-auto p-4 bg-white shadow-lg mt-10 rounded-lg">
-        <header>
+    <div id="app" class="max-w-lg mx-auto p-4 bg-white shadow-lg rounded-lg fade-in">
+        <button id="home-btn" class="absolute top-5 left-5 bg-gray-300 px-4 py-2 rounded hover:bg-gray-400"><span
+                class="hover:animate-pulse">🏠</span></button>
+        <header class="mb-6">
             <h1 class="text-4xl font-bold text-center">Equalizer</h1>
             <p class="text-sm text-center text-gray-600 mt-2">"Math is the great equalizer. If you can do the numbers,
                 the boys have to respect you." - Audrey MacLean</p>
         </header>
-
-        <main class="mt-6">
-            <div class="flex justify-center space-x-4">
-                <button id="guest-btn" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Guest</button>
-                <button id="login-btn" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Log
+        <main class="content-center bg-scroll">
+            <div id="login" class="flex justify-center space-x-4">
+                <button id="guest-btn"
+                    class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 hover:animate-pulse">Guest</button>
+                <button id="login-btn"
+                    class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 hover:animate-pulse">Log
                     In</button>
-                <button id="signup-btn" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Sign
+                <button id="signup-btn"
+                    class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 hover:animate-pulse">Sign
                     Up</button>
             </div>
-
-            <div id="expense-form" class="mt-6 m-20" style="display: none;">
-                <div class="flex justify-center space-x-4">
+            <div id="expense-form" class="content-center" style="display: none;">
+                <div class="flex space-x-4">
                     <input type="text" id="participant-name" placeholder="Add name of participant"
                         class="border border-gray-300 p-2 rounded">
                     <button id="add-participant-btn"
@@ -37,7 +41,7 @@
                     <!-- Participants will be added here dynamically -->
                 </div>
                 <div class="flex justify-center ">
-                    <button id="equalize-btn" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 mt-4"
+                    <button id="equalize-btn" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
                         disabled>EQUALIZE</button>
                 </div>
                 <div id="results" class="mt-4 bg-gray-200 rounded" style="display: none;">
