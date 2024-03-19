@@ -21,9 +21,9 @@ mongoose
   .catch((err) => console.error("MongoDB connection error:", err));
 
 // Define routes
+app.use("/guest", guestRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/expenses", authMiddleware, expenseRoutes); // Protected routes
-app.use("/guest", guestRoutes);
 app.use("/api/users", authMiddleware, userRoutes); // Protected routes
 app.use("/api/seed", seedRoutes);
 

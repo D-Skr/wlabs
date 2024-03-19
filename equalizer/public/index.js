@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "rounded",
         "mr-2",
         "flex-grow",
+        "font-bold",
         "fade-in"
       );
       topRowDiv.appendChild(nameInput);
@@ -61,12 +62,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const deleteBtn = document.createElement("button");
       deleteBtn.textContent = "-";
       deleteBtn.classList.add(
-        "bg-red-500",
+        "bg-orange-500",
         "text-white",
         "w-8",
         "h-8",
         "rounded",
-        "hover:bg-red-600"
+        "hover:bg-orange-600"
       );
       deleteBtn.addEventListener("click", () => {
         participantDiv.remove();
@@ -100,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "border",
       "border-gray-300",
       "p-2",
-      "rounded",
+      "rounded-full",
       "mr-2",
       "flex-grow"
     );
@@ -114,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "text-white",
       "w-8",
       "h-8",
-      "rounded",
+      "rounded-full",
       "hover:bg-green-600"
     );
     addExpenseBtn.addEventListener("click", () => {
@@ -185,12 +186,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function displayResults(results) {
     resultsContainer.innerHTML = `
-          <p>Total expenses: $${results.totalExpenses}</p>
-          <p>AVG: $${results.avgExpense}</p>
+          <p><span class="font-bold">Total expenses:</span> $${
+            results.totalExpenses
+          }</p>
+          <p><span class="font-bold">AVG: </span>$${results.avgExpense}</p>
           ${results.equalizedResult
             .map(
               (transaction) => `
-              <p>${transaction.from} owes ${transaction.to}: $${transaction.amount}</p>
+              <p>${transaction.from} <span class="font-bold">owes</span> ${transaction.to}: $${transaction.amount}</p>
           `
             )
             .join("")}
