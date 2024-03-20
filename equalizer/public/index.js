@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const homeBtn = document.getElementById("home-btn");
   const guestBtn = document.getElementById("guest-btn");
+  const loginBtn = document.getElementById("login-btn");
+  const signupBtn = document.getElementById("signup-btn");
   const expenseForm = document.getElementById("expense-form");
   const addParticipantBtn = document.getElementById("add-participant-btn");
   const participantNameInput = document.getElementById("participant-name");
@@ -8,7 +10,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const equalizeBtn = document.getElementById("equalize-btn");
   const resultsContainer = document.getElementById("results");
   const header = document.querySelector("header");
-  const loginButtons = document.getElementById("login");
+  const loginButtons = document.getElementById("login"); // all 3 buttons
+  const loginFrm = document.getElementById("login-form");
+  const loginEmailInput = document.getElementById("login-email");
+  const loginPasswordInput = document.getElementById("login-password");
+  const loginConfPasswordInput = document.getElementById("confirm-password");
+  const loginSubmitBtn = document.getElementById("login-submit");
+  const signupSubmitBtn = document.getElementById("signup-submit");
+  const signupName = document.getElementById("signup-name");
 
   // Reload the page to return to the home screen
   homeBtn.addEventListener("click", () => {
@@ -209,4 +218,74 @@ document.addEventListener("DOMContentLoaded", () => {
       "mb-4"
     );
   }
+
+  //Login
+  loginBtn.addEventListener("click", function () {
+    header.style.display = "none";
+    loginButtons.style.display = "none";
+    loginFrm.style.display = "block";
+  });
+
+  loginSubmitBtn.addEventListener("click", () => {
+    const email = loginEmailInput.value;
+    const password = loginPasswordInput.value;
+
+    // Simple validation
+    if (!email || !password) {
+      alert("Please fill in both email and password.");
+      return;
+    }
+    axios
+      .post("/auth/login", { email, password })
+      .then((response) => {
+        // Handle successful login
+        console.log("Login successful:", response.data);
+        // Store the JWT token
+        localStorage.setItem("token", response.data.token);
+        window.location.href = "/profile.html";
+      })
+      .catch((error) => {
+        // Handle login error
+        console.error("Login error:", error);
+      });
+  });
+
+  //Sign UP
+  signupBtn.addEventListener("click", function () {
+    header.style.display = "none";
+    loginButtons.style.display = "none";
+    loginFrm.style.display = "block";
+    loginConfPasswordInput.style.display = "block";
+    loginSubmitBtn.style.display = "none";
+    signupSubmitBtn.style.display = "block";
+    signupName.style.display = "block";
+    document.getElementById("washington").style.display = "block";
+  });
+
+  signupSubmitBtn.addEventListener("click", () => {
+    const name = signupName.value;
+    const email = loginEmailInput.value;
+    const password = loginPasswordInput.value;
+    const confirmPassword = loginConfPasswordInput.value;
+
+    // Check if passwords match
+    if (password !== confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+
+    // Perform signup process
+    axios
+      .post("/auth/signup", { name, email, password })
+      .then((response) => {
+        // Handle successful signup
+        console.log("Signup successful:", response.data);
+        alert("Congratulations! Please use LOG IN button");
+        homeBtn.click();
+      })
+      .catch((error) => {
+        // Handle signup error
+        console.error("Signup error:", error);
+      });
+  });
 });

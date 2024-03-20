@@ -8,10 +8,11 @@ const userRoutes = require("./src/routes/userRoutes");
 const seedRoutes = require("./src/routes/seedRoutes");
 const authMiddleware = require("./src/middlewares/authMiddleware");
 const errorMiddleware = require("./src/middlewares/errorMiddleware");
+const cors = require("cors");
 
 const app = express();
 
-// app.use(cors());
+app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB Atlas
@@ -22,7 +23,11 @@ mongoose
 
 // Define routes
 app.use("/guest", guestRoutes);
-app.use("/api/auth", authRoutes);
+app.use("/auth", authRoutes);
+// app.use("/signin", authRoutes);
+// app.use("/api/auth", authRoutes);
+//app.use("/api/auth/signup", authRoutes);
+// app.use("/auth/signup", authRoutes);
 app.use("/api/expenses", authMiddleware, expenseRoutes); // Protected routes
 app.use("/api/users", authMiddleware, userRoutes); // Protected routes
 app.use("/api/seed", seedRoutes);
