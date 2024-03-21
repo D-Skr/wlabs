@@ -5,6 +5,7 @@ const Expense = require("../models/Expense");
 exports.viewAccount = async (req, res) => {
   try {
     const userId = req.params.userId;
+    //const userId = req.userId;
     const user = await User.findById(userId);
 
     if (!user) {

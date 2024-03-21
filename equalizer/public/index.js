@@ -18,10 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const loginSubmitBtn = document.getElementById("login-submit");
   const signupSubmitBtn = document.getElementById("signup-submit");
   const signupName = document.getElementById("signup-name");
+  // const newUserExpenseBtn = document.getElementById("new-expense-btn");
 
   // Reload the page to return to the home screen
   homeBtn.addEventListener("click", () => {
-    window.location.reload();
+    //window.location.reload();
+    window.location.href = "/"; 
   });
 
   guestBtn.addEventListener("click", () => {
@@ -30,6 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
     expenseForm.style.display = "block";
     expenseForm.classList.add("fade-in");
   });
+
+
 
   addParticipantBtn.addEventListener("click", () => {
     const name =
@@ -247,6 +251,8 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch((error) => {
         // Handle login error
         console.error("Login error:", error);
+        alert("Incorrect email / password.");
+      return;
       });
   });
 
@@ -288,4 +294,15 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Signup error:", error);
       });
   });
+
+  // Event listener for the "New Expense" button
+// document.getElementById("new-expense-btn").addEventListener("click", () => {
+//   // const expenseForm2 = document.getElementById("expense-form2");
+//   expenseForm.style.display = expenseForm.style.display === "none" ? "block" : "none";
+//     expenseForm.classList.add("fade-in");
+// });
 });
+
+
+
+

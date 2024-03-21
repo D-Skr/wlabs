@@ -1,11 +1,5 @@
 //const Expense = require("../models/Expense");
 
-// Function to handle viewing the main page for guests
-exports.viewHomePage = (req, res) => {
-  // Logic to display the main page content
-  res.status(200).json({ message: "Welcome to Equalizer" });
-};
-
 // Function to handle managing expenses for guests and equalizing them
 exports.manageExpenses = (req, res) => {
   try {

@@ -30,7 +30,6 @@ app.use("/auth", authRoutes);
 // app.use("/auth/signup", authRoutes);
 app.use("/api/expenses", authMiddleware, expenseRoutes); // Protected routes
 app.use("/api/users", authMiddleware, userRoutes); // Protected routes
-app.use("/api/seed", seedRoutes);
 
 // Serve static files
 app.use(express.static("public"));

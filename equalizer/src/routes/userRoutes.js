@@ -1,15 +1,22 @@
 const express = require("express");
 const router = express.Router();
 const userController = require("../controllers/userController");
-const jwtMiddleware = require("../middlewares/authMiddleware");
+const authMiddleware = require("../middlewares/authMiddleware");
 
-router.get("/:userId", jwtMiddleware, userController.viewAccount);
-router.delete("/:userId", jwtMiddleware, userController.deleteAccount);
-router.get("/:userId/history", jwtMiddleware, userController.viewHistory);
+router.get("/:userId", authMiddleware, userController.viewAccount);
+//router.post("/:userId/new", authMiddleware, userController.newExpense);
+router.delete("/:userId", authMiddleware, userController.deleteAccount);
+router.get("/:userId/history", authMiddleware, userController.viewHistory);
 router.get(
   "/:userId/history/:expenseId",
-  jwtMiddleware,
+  authMiddleware,
   userController.viewExpenseDetails
 );
+
+// In userRoutes.js or your main application file
+// router.get("/", authMiddleware, (req, res) => {
+//   // If the user is logged in, redirect to their profile page
+//   res.redirect(`/users/${req.userId}`);
+// });
 
 module.exports = router;
