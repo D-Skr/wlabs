@@ -194,7 +194,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateEqualizeButtonState() {
     const participantCount =
       participantsList.querySelectorAll(".participant-item").length;
-    equalizeBtn.disabled = participantCount < 2;
+      if (participantCount > 1)
+      equalizeBtn.classList.remove("hidden");
+      else
+      equalizeBtn.classList.add("hidden");
   }
 
   function displayResults(results) {
