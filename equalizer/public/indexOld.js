@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const homeBtn = document.getElementById("home-btn");
+  const guestBtn = document.getElementById("guest-btn");
+  const loginBtn = document.getElementById("login-btn");
+  const signupBtn = document.getElementById("signup-btn");
   const expenseForm = document.getElementById("expense-form");
   const addParticipantBtn = document.getElementById("add-participant-btn");
   const participantNameInput = document.getElementById("participant-name");
@@ -8,10 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const resultsContainer = document.getElementById("results");
   const header = document.querySelector("header");
   const loginButtons = document.getElementById("login"); // all 3 buttons
-
-  const guestBtn = document.getElementById("guest-btn");
-  const loginBtn = document.getElementById("login-btn");
-  const signupBtn = document.getElementById("signup-btn");
   const loginFrm = document.getElementById("login-form");
   const loginEmailInput = document.getElementById("login-email");
   const loginPasswordInput = document.getElementById("login-password");
@@ -19,11 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const loginSubmitBtn = document.getElementById("login-submit");
   const signupSubmitBtn = document.getElementById("signup-submit");
   const signupName = document.getElementById("signup-name");
+  // const newUserExpenseBtn = document.getElementById("new-expense-btn");
 
   // Reload the page to return to the home screen
   homeBtn.addEventListener("click", () => {
     //window.location.reload();
-    window.location.reload();
+    window.location.href = "/"; 
   });
 
   guestBtn.addEventListener("click", () => {
@@ -32,6 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
     expenseForm.style.display = "block";
     expenseForm.classList.add("fade-in");
   });
+
+
 
   addParticipantBtn.addEventListener("click", () => {
     const name =
@@ -167,82 +169,51 @@ document.addEventListener("DOMContentLoaded", () => {
       participantsList.querySelectorAll(".participant-item")
     ).map((item) => {
       const name = item.querySelector("input[type='text']").value;
-      const expenses = Array.from(item.querySelectorAll(".expense-input"))
-        .map((expenseInput) => parseFloat(expenseInput.value))
-        .filter((expense) => !isNaN(expense) && expense > 0); // Filter out empty or invalid expenses
-      const totalExpense = expenses.reduce((acc, val) => acc + val, 0);
-      return { name, totalExpense };
+      const expenses = Array.from(item.querySelectorAll(".expense-input")).map(
+        (expenseInput) => parseFloat(expenseInput.value)
+      );
+      return { name, expenses };
     });
-    console.log(participants);
 
-    // Perform equalization logic
-    const totalExpenses = participants.reduce(
-      (acc, participant) => acc + participant.totalExpense,
-      0
-    );
-    console.log(totalExpenses);
-    const avgExpense = totalExpenses / participants.length;
-    console.log(avgExpense);
-    const equalizedResult = participants.map((participant) => {
-      const balance = participant.totalExpense - avgExpense;
-      return { ...participant, balance };
-    });
-    console.log(equalizedResult);
-    // Display the equalization results
-    displayResults({ totalExpenses, avgExpense, equalizedResult });
+    axios
+      .post("/guest/expenses", { participants })
+      .then((response) => {
+        console.log("inside!!axios");
+        const data = response.data;
+        if (data.message === "Expenses equalized successfully for guest") {
+          displayResults(data);
+        } else {
+          console.error("Error equalizing expenses:", data.message);
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   });
 
   function updateEqualizeButtonState() {
     const participantCount =
       participantsList.querySelectorAll(".participant-item").length;
-    if (participantCount > 1) equalizeBtn.classList.remove("hidden");
-    else equalizeBtn.classList.add("hidden");
+      if (participantCount > 1)
+      equalizeBtn.classList.remove("hidden");
+      else
+      equalizeBtn.classList.add("hidden");
   }
 
-  function displayResults({ totalExpenses, avgExpense, equalizedResult }) {
-    equalizedResult.sort((a, b) => a.balance - b.balance);
-    const transactions = [];
-    let i = 0; // Index for participants with negative balance (owes money)
-    let j = equalizedResult.length - 1; // Index for participants with positive balance (receives money)
-
-    // Create transactions until all balances are settled
-    while (i < j) {
-      const payer = equalizedResult[i];
-      const receiver = equalizedResult[j];
-      const amount = Math.min(-payer.balance, receiver.balance);
-
-      transactions.push({
-        from: payer.name,
-        to: receiver.name,
-        amount: amount.toFixed(2),
-      });
-
-      payer.balance += amount;
-      receiver.balance -= amount;
-
-      if (payer.balance === 0) {
-        i++;
-      }
-      if (receiver.balance === 0) {
-        j--;
-      }
-    }
-
+  function displayResults(results) {
     resultsContainer.innerHTML = `
-      <p><span class="font-bold">Total expenses:</span> $${totalExpenses.toFixed(
-        2
-      )}</p>
-      <p><span class="font-bold">Average expense:</span> $${avgExpense.toFixed(
-        2
-      )}</p>
-      ${transactions
-        .map(
-          (transaction) => `
-      <p><span class="font-bold">${transaction.from}</span> owes <span class="font-bold">${transaction.to}</span>: $${transaction.amount}</p>
-  `
-        )
-        .join("")}
-  `;
+          <p><span class="font-bold">Total expenses:</span> $${
+            results.totalExpenses
+          }</p>
+          <p><span class="font-bold">AVG: </span>$${results.avgExpense}</p>
+          ${results.equalizedResult
+            .map(
+              (transaction) => `
+              <p>${transaction.from} <span class="font-bold">owes</span> ${transaction.to}: $${transaction.amount}</p>
+          `
+            )
+            .join("")}
+      `;
     resultsContainer.style.display = "block";
     resultsContainer.classList.add(
       "fade-in",
@@ -284,7 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Handle login error
         console.error("Login error:", error);
         alert("Incorrect email / password.");
-        return;
+      return;
       });
   });
 
@@ -326,4 +297,15 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Signup error:", error);
       });
   });
+
+  // Event listener for the "New Expense" button
+// document.getElementById("new-expense-btn").addEventListener("click", () => {
+//   // const expenseForm2 = document.getElementById("expense-form2");
+//   expenseForm.style.display = expenseForm.style.display === "none" ? "block" : "none";
+//     expenseForm.classList.add("fade-in");
+// });
 });
+
+
+
+
