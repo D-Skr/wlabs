@@ -278,6 +278,8 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Login successful:", response.data);
         // Store the JWT token
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("userId", response.data.userId.toString());
+        console.log(response.data);
         window.location.href = "/profile.html";
       })
       .catch((error) => {

@@ -6,11 +6,13 @@ const expenseSchema = new Schema({
   participants: [
     {
       name: { type: String, required: true },
-      expense: { type: Number, required: true },
+      expense: [{ type: Number, required: true }],
     },
   ],
   description: { type: String, default: "" },
   date: { type: Date, required: true },
+  total: { type: Number, required: true },
+  avg: { type: Number, required: true },
   equalizedResult: [
     {
       from: String,

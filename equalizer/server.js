@@ -3,7 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const authRoutes = require("./src/routes/authRoutes");
 const expenseRoutes = require("./src/routes/expenseRoutes");
-const guestRoutes = require("./src/routes/guestRoutes");
+//const guestRoutes = require("./src/routes/guestRoutes");
 const userRoutes = require("./src/routes/userRoutes");
 const seedRoutes = require("./src/routes/seedRoutes");
 const authMiddleware = require("./src/middlewares/authMiddleware");
@@ -22,7 +22,7 @@ mongoose
   .catch((err) => console.error("MongoDB connection error:", err));
 
 // Define routes
-app.use("/guest", guestRoutes);
+//app.use("/guest", guestRoutes);
 app.use("/auth", authRoutes);
 // app.use("/signin", authRoutes);
 // app.use("/api/auth", authRoutes);
