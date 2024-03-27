@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Update form fields with user details
     // document.getElementById('name').value = user.name;
     // document.getElementById('email').value = user.email;
-    // You can also set up fields for password, but be cautious with handling passwords
+    // document.getElementById('password').value = user.password;
   }
 
   //const userId = 'your-user-id';  // You'll need to retrieve the user's ID, possibly from localStorage or a cookie
@@ -205,18 +205,31 @@ document.addEventListener("DOMContentLoaded", () => {
       participantsList.querySelectorAll(".participant-item")
     ).map((item) => {
       const name = item.querySelector("input[type='text']").value;
-      const expenses = Array.from(item.querySelectorAll(".expense-input")).map(
-        (expenseInput) => parseFloat(expenseInput.value)
-      );
+      const expenses = Array.from(item.querySelectorAll(".expense-input"))
+        .map((expenseInput) => parseFloat(expenseInput.value))
+        .filter((expense) => !isNaN(expense) && expense > 0);
       return { name, expenses };
     });
 
+    const date = document.getElementById("expense-date").value;
+    const description = document.getElementById("expense-description").value;
+
     axios
-      .post("/guest/expenses", { participants })
+      .post(
+        `/api/users/${userId}/expenses`,
+        { participants, date, description },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then((response) => {
-        console.log("inside!!axios");
         const data = response.data;
-        if (data.message === "Expenses equalized successfully for guest") {
+        if (
+          data.message ===
+          `Expenses equalized successfully for user_id: ${userId}`
+        ) {
           displayResults(data);
         } else {
           console.error("Error equalizing expenses:", data.message);
@@ -243,7 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
               ${results.equalizedResult
                 .map(
                   (transaction) => `
-                  <p>${transaction.from} <span class="font-bold">owes</span> ${transaction.to}: $${transaction.amount}</p>
+                  <p><span class="font-bold">${transaction.from}</span> owes <span class="font-bold">${transaction.to}</span>: $${transaction.amount}</p>
               `
                 )
                 .join("")}

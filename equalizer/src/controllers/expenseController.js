@@ -10,6 +10,9 @@ exports.createExpense = async (req, res) => {
       participants,
       description,
       date,
+      total,
+      avg,
+      equalizedResult,
       createdAt: new Date(),
     });
 

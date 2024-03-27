@@ -4,7 +4,7 @@ const userController = require("../controllers/userController");
 const authMiddleware = require("../middlewares/authMiddleware");
 
 router.get("/:userId", authMiddleware, userController.viewAccount);
-//router.post("/:userId/new", authMiddleware, userController.newExpense);
+router.post("/:userId/expenses", authMiddleware, userController.manageExpenses);
 router.delete("/:userId", authMiddleware, userController.deleteAccount);
 router.get("/:userId/history", authMiddleware, userController.viewHistory);
 router.get(
