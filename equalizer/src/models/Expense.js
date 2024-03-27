@@ -10,7 +10,7 @@ const expenseSchema = new Schema({
     },
   ],
   description: { type: String, default: "" },
-  date: { type: Date, default: Date.now, notNull: true },
+  date: { type: Date },
   total: { type: Number, required: true },
   avg: { type: Number, required: true },
   equalizedResult: [

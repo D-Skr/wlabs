@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const equalizeBtn = document.getElementById("equalize-btn");
   const resultsContainer = document.getElementById("results");
   const deleteAccountBtn = document.getElementById("delete-account-btn");
+  const clearHistoryBtn = document.getElementById("clear-history-btn");
 
   // Check if the user is authenticated
   const token = localStorage.getItem("token");
@@ -306,5 +307,25 @@ document.addEventListener("DOMContentLoaded", () => {
         // Handle logout error
         console.error("Logout error:", error);
       });
+  });
+
+  clearHistoryBtn.addEventListener("click", () => {
+    console.log("Clear history button clicked");
+    if (confirm("Are you sure you want to delete your history?")) {
+      try {
+        // delete all expenses for a specific user
+        axios
+          .delete(`/api/users/${userId}/expenses`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+          .then((response) => {
+            console.log("Expenses cleared successfully");
+          });
+      } catch (error) {
+        console.error("Error clearing expenses:", error);
+      }
+    }
   });
 });

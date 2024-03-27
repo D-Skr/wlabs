@@ -5,6 +5,11 @@ const authMiddleware = require("../middlewares/authMiddleware");
 
 router.get("/:userId", authMiddleware, userController.viewAccount);
 router.post("/:userId/expenses", authMiddleware, userController.manageExpenses);
+router.delete(
+  "/:userId/expenses",
+  authMiddleware,
+  userController.deleteAllExpensesForUser
+);
 router.delete("/:userId", authMiddleware, userController.deleteAccount);
 router.get("/:userId/history", authMiddleware, userController.viewHistory);
 router.get(

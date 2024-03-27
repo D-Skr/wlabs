@@ -167,3 +167,26 @@ exports.viewExpenseDetails = async (req, res) => {
     });
   }
 };
+
+// Function to delete all expenses for a specific user
+exports.deleteAllExpensesForUser = async (req, res) => {
+  try {
+    // Delete all expenses for the user
+    await Expense.deleteMany({ userId });
+
+    // Return a success response
+    res
+      .status(200)
+      .json({ message: "All expenses deleted successfully for user" });
+    alert("History was wiped successfully");
+  } catch (error) {
+    if (!res.headersSent) {
+      res
+        .status(500)
+        .json({
+          message: "Error deleting expenses for user",
+          error: error.message,
+        });
+    }
+  }
+};
