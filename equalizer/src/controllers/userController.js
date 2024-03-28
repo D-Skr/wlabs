@@ -124,25 +124,40 @@ exports.manageExpenses = async (req, res) => {
 };
 
 // Function to view user's expense history
+// exports.viewHistory = async (req, res) => {
+//   try {
+//     const { startDate, endDate, description } = req.query;
+
+//     let query = { userId: userId };
+//     if (startDate && endDate) {
+//       query.date = { $gte: new Date(startDate), $lte: new Date(endDate) };
+//     }
+//     if (description) {
+//       query.description = { $regex: description, $options: "i" }; // Case-insensitive search
+//     }
+
+//     const expenses = await Expense.find(query).sort({ date: -1 });
+
+//     res.status(200).json({ expenses });
+//   } catch (error) {
+//     res.status(500).json({
+//       message: "Error retrieving expense history",
+//       error: error.message,
+//     });
+//   }
+// };
 exports.viewHistory = async (req, res) => {
   try {
-    const userId = req.params.userId;
-    const { startDate, endDate, description } = req.query;
+    const expenses = await Expense.find({ userId }).sort({ date: -1 });
 
-    let query = { userId: userId };
-    if (startDate && endDate) {
-      query.date = { $gte: new Date(startDate), $lte: new Date(endDate) };
+    if (!expenses) {
+      return res.status(404).json({ message: "No expenses found for user" });
     }
-    if (description) {
-      query.description = { $regex: description, $options: "i" }; // Case-insensitive search
-    }
-
-    const expenses = await Expense.find(query).sort({ date: -1 });
 
     res.status(200).json({ expenses });
   } catch (error) {
     res.status(500).json({
-      message: "Error retrieving expense history",
+      message: "Error retrieving expenses for user",
       error: error.message,
     });
   }
@@ -151,7 +166,6 @@ exports.viewHistory = async (req, res) => {
 // Function to view details of a specific expense
 exports.viewExpenseDetails = async (req, res) => {
   try {
-    const userId = req.params.userId;
     const expenseId = req.params.expenseId;
     const expense = await Expense.findOne({ _id: expenseId, userId: userId });
 
@@ -181,12 +195,10 @@ exports.deleteAllExpensesForUser = async (req, res) => {
     alert("History was wiped successfully");
   } catch (error) {
     if (!res.headersSent) {
-      res
-        .status(500)
-        .json({
-          message: "Error deleting expenses for user",
-          error: error.message,
-        });
+      res.status(500).json({
+        message: "Error deleting expenses for user",
+        error: error.message,
+      });
     }
   }
 };
