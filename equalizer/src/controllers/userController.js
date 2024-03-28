@@ -24,7 +24,6 @@ exports.viewAccount = async (req, res) => {
 // Function to delete user account
 exports.deleteAccount = async (req, res) => {
   try {
-    const userId = req.params.userId;
     const user = await User.findByIdAndDelete(userId);
 
     if (!user) {

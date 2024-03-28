@@ -54,7 +54,11 @@ document.addEventListener("DOMContentLoaded", () => {
   deleteAccountBtn.addEventListener("click", async () => {
     if (confirm("Are you sure you want to delete your account?")) {
       try {
-        const response = await axios.delete(`/api/users/${userId}`);
+        const response = await axios.delete(`/api/users/${userId}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
         alert(response.data.message);
         window.location.href = "/"; // Redirect to the login page
       } catch (error) {
