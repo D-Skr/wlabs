@@ -334,4 +334,35 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
+
+  //History
+  historyBtn.addEventListener("click", () => {
+    if (historyContainer.style.display == "block") {
+      historyContainer.style.display = "none";
+      return;
+    }
+    axios
+      .get(`/api/users/${userId}/history`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        const expenses = response.data.expenses;
+        // Clear existing history
+        historyContainer.innerHTML = "";
+        // Display each expense in the history container
+        expenses.forEach((expense) => {
+          const date = new Date(expense.date).toISOString().split("T")[0]; // Format the date as YYYY-MM-DD
+          const expenseElement = document.createElement("div");
+          expenseElement.textContent = `Date: ${date}, Description: ${expense.description}, Total: ${expense.total}`;
+          historyContainer.appendChild(expenseElement);
+        });
+        // Show the history container
+        historyContainer.style.display = "block";
+      })
+      .catch((error) => {
+        console.error("Error fetching history:", error);
+      });
+  });
 });
