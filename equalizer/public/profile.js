@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const resultsContainer = document.getElementById("results");
   const deleteAccountBtn = document.getElementById("delete-account-btn");
   const clearHistoryBtn = document.getElementById("clear-history-btn");
+  const historyBtn = document.getElementById("history-btn");
+  const historyContainer = document.getElementById("history-container");
 
   // Check if the user is authenticated
   const token = localStorage.getItem("token");
