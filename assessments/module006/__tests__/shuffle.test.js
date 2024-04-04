@@ -1,3 +1,6 @@
+//run tests
+//npm test -t shuffle
+
 const shuffle = require("../src/shuffle");
 
 describe("shuffle should...", () => {
