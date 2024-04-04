@@ -8,6 +8,13 @@ const playerRecord = {
 };
 const app = express();
 
+var Rollbar = require("rollbar");
+var rollbar = new Rollbar({
+  accessToken: "8a1cc7dbf292401eb58daeddcce1560d",
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+});
+
 app.use(express.json());
 app.use(express.static(__dirname + "/public"));
 // Add up the total health of all the robots
@@ -41,6 +48,7 @@ app.get("/api/robots", (req, res) => {
     res.status(200).send(botsArr);
   } catch (error) {
     console.error("ERROR GETTING BOTS", error);
+    rollbar.error("ERROR GETTING BOTS", error);
     res.sendStatus(400);
   }
 });
@@ -51,6 +59,7 @@ app.get("/api/robots/shuffled", (req, res) => {
     res.status(200).send(shuffled);
   } catch (error) {
     console.error("ERROR GETTING SHUFFLED BOTS", error);
+    rollbar.error("ERROR GETTING SHUFFLED BOTS", error);
     res.sendStatus(400);
   }
 });
@@ -68,12 +77,15 @@ app.post("/api/duel", (req, res) => {
     if (compHealth > playerHealth) {
       playerRecord.losses += 1;
       res.status(200).send("You lost!");
+      rollbar.info("Player lost");
     } else {
       playerRecord.wins += 1;
       res.status(200).send("You won!");
+      rollbar.info("Player wins");
     }
   } catch (error) {
     console.log("ERROR DUELING", error);
+    rollbar.log("ERROR DUELING", error);
     res.sendStatus(400);
   }
 });
@@ -83,10 +95,12 @@ app.get("/api/player", (req, res) => {
     res.status(200).send(playerRecord);
   } catch (error) {
     console.log("ERROR GETTING PLAYER STATS", error);
+    rollbar.log("ERROR GETTING PLAYER STATS", error);
     res.sendStatus(400);
   }
 });
 
 app.listen(8000, () => {
   console.log(`Listening on 8000`);
+  rollbar.log(`Listening on 8000`);
 });
