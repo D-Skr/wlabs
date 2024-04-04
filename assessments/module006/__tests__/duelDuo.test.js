@@ -1,3 +1,6 @@
+//run these tests
+//npm test -t shuffle
+
 const { Builder, Browser, By, until } = require("selenium-webdriver");
 
 let driver;
