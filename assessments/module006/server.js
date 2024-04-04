@@ -5,10 +5,10 @@ const shuffle = require("./src/shuffle");
 
 const TOKEN = process.env.ROLLBAR_TOKEN;
 
-const playerRecord = {
-  wins: 0,
-  losses: 0,
-};
+// const playerRecord = {
+//   wins: 0,
+//   losses: 0,
+// };
 const app = express();
 
 var Rollbar = require("rollbar");
@@ -78,11 +78,11 @@ app.post("/api/duel", (req, res) => {
 
     // comparing the total health to determine a winner
     if (compHealth > playerHealth) {
-      playerRecord.losses += 1;
+      //playerRecord.losses += 1;
       res.status(200).send("You lost!");
       rollbar.info("Player lost");
     } else {
-      playerRecord.wins += 1;
+      //playerRecord.wins += 1;
       res.status(200).send("You won!");
       rollbar.info("Player wins");
     }
@@ -93,15 +93,15 @@ app.post("/api/duel", (req, res) => {
   }
 });
 
-app.get("/api/player", (req, res) => {
-  try {
-    res.status(200).send(playerRecord);
-  } catch (error) {
-    console.log("ERROR GETTING PLAYER STATS", error);
-    rollbar.log("ERROR GETTING PLAYER STATS", error);
-    res.sendStatus(400);
-  }
-});
+// app.get("/api/player", (req, res) => {
+//   try {
+//     res.status(200).send(playerRecord);
+//   } catch (error) {
+//     console.log("ERROR GETTING PLAYER STATS", error);
+//     rollbar.log("ERROR GETTING PLAYER STATS", error);
+//     res.sendStatus(400);
+//   }
+// });
 
 app.listen(8000, () => {
   console.log(`Listening on 8000`);

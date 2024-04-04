@@ -13,6 +13,12 @@ const chooseHeader = document.querySelector("#choose-header");
 const yourDuoHeader = document.querySelector("#your-duo-header");
 const compDuoHeader = document.querySelector("#comp-duo-header");
 
+// Define playerRecord on the client-side
+const playerRecord = {
+  wins: 0,
+  losses: 0,
+};
+
 let choices = [];
 let compDuo = [];
 let playerDuo = [];
@@ -142,9 +148,22 @@ const duel = () => {
     axios.post("/api/duel", { compDuo, playerDuo }).then(({ data }) => {
       resultsText.textContent = data;
       playAgainBtn.classList.remove("hide");
-      getPlayerStats();
+      //getPlayerStats();
+      if (data === "You won!") {
+        playerRecord.wins++; // Update wins on win
+      } else {
+        playerRecord.losses++; // Update losses on loss
+      }
+
+      updateStats();
     });
   }, 1500);
+};
+
+//move logic to client side
+const updateStats = () => {
+  winsText.textContent = `Wins: ${playerRecord.wins}`;
+  lossesTest.textContent = `Losses: ${playerRecord.losses}`;
 };
 
 const reset = () => {
@@ -160,12 +179,12 @@ const reset = () => {
   compDuoHeader.classList.add("hide");
 };
 
-const getPlayerStats = () => {
-  axios.get("/api/player").then(({ data: { wins, losses } }) => {
-    winsText.textContent = `Wins: ${wins}`;
-    lossesTest.textContent = `Losses: ${losses}`;
-  });
-};
+// const getPlayerStats = () => {
+//   axios.get("/api/player").then(({ data: { wins, losses } }) => {
+//     winsText.textContent = `Wins: ${wins}`;
+//     lossesTest.textContent = `Losses: ${losses}`;
+//   });
+// };
 
 const getAllBots = () => {
   axios.get("/api/robots").then(({ data }) => {
@@ -183,4 +202,5 @@ duelBtn.addEventListener("click", duel);
 playAgainBtn.addEventListener("click", reset);
 seeAllBtn.addEventListener("click", getAllBots);
 
-getPlayerStats();
+//getPlayerStats();
+updateStats();
