@@ -1,5 +1,6 @@
 //LOGGED USER
 document.addEventListener("DOMContentLoaded", () => {
+  const homeBtn = document.getElementById("home-btn");
   const expenseForm2 = document.getElementById("expense-form2");
   const newUserExpenseBtn = document.getElementById("new-expense-btn");
   const addParticipantBtn = document.getElementById("add-participant-btn");
@@ -36,9 +37,16 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Failed to fetch user's profile, please retry");
     });
 
+  // Reload the page to return to the home screen
+  homeBtn.addEventListener("click", () => {
+    //window.location.reload();
+    window.location.reload();
+  });
+
   function displayUserProfile(user) {
     const profileHeader = document.getElementById("profile-header");
     profileHeader.textContent = `Profile: ${user.name}`;
+  }
 
   deleteAccountBtn.addEventListener("click", async () => {
     if (confirm("Are you sure you want to delete your account?")) {
@@ -401,7 +409,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Toggle visibility
   function toggleButtons(clickedButton) {
-    const allButtons = document.querySelectorAll("button"); // Get all buttons
+    const allButtons = document.querySelectorAll("button2"); // Get all main buttons
 
     allButtons.forEach((button) => {
       if (button !== clickedButton) {

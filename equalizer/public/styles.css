@@ -1,17 +1,8 @@
-/* body {
+body {
     font-family: Arial, sans-serif;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-}
 
-#app {
-    max-width: 600px;
-    margin: auto;
-} */
 .fade-in {
     animation: fadeIn 0.5s ease-in-out;
 }
@@ -26,14 +17,6 @@ nav {
     }
 }
 
-/* .bg-img {
-    background-image: url('img_bg2.jpg');
-    position: relative;
-    opacity: 0.5;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-} */
 
 .bg-img {
     height: 100vh;
@@ -60,4 +43,8 @@ body::before {
 #app {
     max-height: 97%;
     overflow-y: auto;
+}
+
+.button2 {
+    text-contents: center;
 }
