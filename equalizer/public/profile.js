@@ -40,19 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const profileHeader = document.getElementById("profile-header");
     profileHeader.textContent = `Profile: ${user.name}`;
 
-    // Update form fields with user details
-    // document.getElementById('name').value = user.name;
-    // document.getElementById('email').value = user.email;
-    // document.getElementById('password').value = user.password;
-  }
-
-  //const userId = 'your-user-id';  // You'll need to retrieve the user's ID, possibly from localStorage or a cookie
-
-  // const historyBtn = document.getElementById("history-btn");
-  // historyBtn.addEventListener("click", () => {
-  //     window.location.href = `/profile/${userId}/history`;  // Redirect to the history page
-  // });
-
   deleteAccountBtn.addEventListener("click", async () => {
     if (confirm("Are you sure you want to delete your account?")) {
       try {
@@ -73,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Add event listeners for other buttons (New, Clear History, Log Out) with similar logic
   newUserExpenseBtn.addEventListener("click", () => {
     // const expenseForm2 = document.getElementById("expense-form2");
+    toggleButtons(newUserExpenseBtn);
     expenseForm2.style.display =
       expenseForm2.style.display === "none" ? "block" : "none";
     expenseForm2.classList.add("fade-in");
@@ -337,10 +325,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //History
   historyBtn.addEventListener("click", () => {
-    if (historyContainer.style.display == "block") {
+    toggleButtons(historyBtn);
+    if (historyContainer.style.display === "block") {
       historyContainer.style.display = "none";
       return;
     }
+
     axios
       .get(`/api/users/${userId}/history`, {
         headers: {
@@ -349,20 +339,75 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .then((response) => {
         const expenses = response.data.expenses;
+
         // Clear existing history
         historyContainer.innerHTML = "";
-        // Display each expense in the history container
+
         expenses.forEach((expense) => {
-          const date = new Date(expense.date).toISOString().split("T")[0]; // Format the date as YYYY-MM-DD
+          const date = new Date(expense.date).toISOString().split("T")[0];
           const expenseElement = document.createElement("div");
-          expenseElement.textContent = `Date: ${date}, Description: ${expense.description}, Total: ${expense.total}`;
+          expenseElement.className =
+            "expense-item mb-4 px-2 py-2 text-sm bg-gray-200 hover:bg-gray-300 rounded-md shadow-sm fade-in ease-in duration-300";
+          // Initial display: Date & Description
+          const summary = document.createElement("p");
+          summary.textContent = `${date} : ${expense.description}`;
+          summary.classList.add("font-semibold");
+          expenseElement.appendChild(summary);
+
+          // Create details container (initially hidden)
+          const details = document.createElement("div");
+          details.className = "expense-details";
+          details.style.display = "none";
+
+          // Add Total and Average
+          const totalElement = document.createElement("p");
+          totalElement.textContent = `Total: ${expense.total}`;
+          details.appendChild(totalElement);
+
+          const avgElement = document.createElement("p");
+          avgElement.textContent = `AVG: ${expense.avg.toFixed(2)}`;
+          details.appendChild(avgElement);
+
+          // Add who owes whom
+          const owesList = document.createElement("ul");
+          expense.equalizedResult.forEach((item) => {
+            const oweItem = document.createElement("li");
+            oweItem.textContent = `${item.from} owes ${item.to}: ${item.amount}`;
+            owesList.appendChild(oweItem);
+          });
+          details.appendChild(owesList);
+
+          // Add details to the main element
+          expenseElement.appendChild(details);
+
+          // Add click event to toggle details
+          expenseElement.addEventListener("click", () => {
+            if (details.style.display === "none") {
+              details.style.display = "block";
+            } else {
+              details.style.display = "none";
+            }
+          });
+
           historyContainer.appendChild(expenseElement);
         });
-        // Show the history container
+
         historyContainer.style.display = "block";
       })
       .catch((error) => {
         console.error("Error fetching history:", error);
       });
   });
+
+  // Toggle visibility
+  function toggleButtons(clickedButton) {
+    const allButtons = document.querySelectorAll("button"); // Get all buttons
+
+    allButtons.forEach((button) => {
+      if (button !== clickedButton) {
+        button.style.display =
+          button.style.display === "none" ? "inline-block" : "none";
+      }
+    });
+  }
 });

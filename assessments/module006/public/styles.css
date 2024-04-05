@@ -42,7 +42,7 @@ img {
     background: white;
 }
 
-.outline::before{
+.outline::before {
     content: '';
     position: absolute;
     left: -10px;
@@ -53,9 +53,13 @@ img {
     height: calc(100% + 20px);
     z-index: -1;
     border-radius: 0 20px 0 20px;
-  }
+}
 
-h2, h3, h4, p, button {
+h2,
+h3,
+h4,
+p,
+button {
     margin: 10px;
     text-align: center;
 }
