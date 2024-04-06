@@ -352,6 +352,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Clear existing history
         historyContainer.innerHTML = "";
+        rollbar.log(`User ${userId} looks in history!`);
 
         expenses.forEach((expense) => {
           const date = new Date(expense.date).toISOString().split("T")[0];

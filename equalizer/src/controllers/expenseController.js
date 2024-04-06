@@ -86,6 +86,7 @@ exports.equalizeExpenses = async (req, res) => {
 
     // Update the expense with the equalized result
     expense.equalizedResult = transactions;
+    rollbar.log("new expense saved!");
     await expense.save();
 
     // Return success response with equalized result
