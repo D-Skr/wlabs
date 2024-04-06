@@ -44,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function displayUserProfile(user) {
-    rollbar.log("User is here!");
     const profileHeader = document.getElementById("profile-header");
     profileHeader.textContent = `Profile: ${user.name}`;
   }
@@ -215,7 +214,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return { name, expenses };
     });
 
-    rollbar.log("User is equalizing!");
     const date = document.getElementById("expense-date").value;
     const description = document.getElementById("expense-description").value;
 
@@ -352,7 +350,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Clear existing history
         historyContainer.innerHTML = "";
-        rollbar.log(`User ${userId} looks in history!`);
 
         expenses.forEach((expense) => {
           const date = new Date(expense.date).toISOString().split("T")[0];
