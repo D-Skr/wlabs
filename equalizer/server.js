@@ -41,8 +41,8 @@ app.use("/api/expenses", authMiddleware, expenseRoutes); // Protected routes
 app.use("/api/users", authMiddleware, userRoutes); // Protected routes
 
 // Serve static files
-app.use(express.static("public"));
-//app.use(express.static(__dirname + "/public/"));
+//app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 
 // Error handling middleware
 app.use(errorMiddleware);
