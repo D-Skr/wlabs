@@ -28,13 +28,14 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
+// Serve static files
+app.use(express.static(`${__dirname}/public`));
+//app.use(express.static(__dirname + "/public"));
+
 // Define routes
 app.use("/auth", authRoutes);
 app.use("/api/expenses", authMiddleware, expenseRoutes); // Protected routes
 app.use("/api/users", authMiddleware, userRoutes); // Protected routes
-
-// Serve static files
-app.use(express.static(__dirname + "/public"));
 
 // Error handling middleware
 app.use(errorMiddleware);
