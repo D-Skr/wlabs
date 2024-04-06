@@ -9,6 +9,15 @@ const seedRoutes = require("./src/routes/seedRoutes");
 const authMiddleware = require("./src/middlewares/authMiddleware");
 const errorMiddleware = require("./src/middlewares/errorMiddleware");
 const cors = require("cors");
+const ROLLBAR_TOKEN = process.env.ROLLBAR_TOKEN;
+
+// include and initialize the rollbar library with your access token
+const Rollbar = require("rollbar");
+var rollbar = new Rollbar({
+  accessToken: ROLLBAR_TOKEN,
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+});
 
 const app = express();
 
@@ -42,4 +51,5 @@ app.use(errorMiddleware);
 const PORT = process.env.SERVER_PORT;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+  rollbar.log(`EQ Server running on port ${PORT}`);
 });

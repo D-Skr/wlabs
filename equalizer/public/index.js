@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   guestBtn.addEventListener("click", () => {
+    rollbar.log("Guest is here!");
     header.style.display = "none";
     loginButtons.style.display = "none";
     expenseForm.style.display = "block";
