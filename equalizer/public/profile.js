@@ -39,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Reload the page to return to the home screen
   homeBtn.addEventListener("click", () => {
-    //window.location.reload();
     window.location.reload();
   });
 
@@ -67,7 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Add event listeners for other buttons (New, Clear History, Log Out) with similar logic
   newUserExpenseBtn.addEventListener("click", () => {
-    // const expenseForm2 = document.getElementById("expense-form2");
     toggleButtons(newUserExpenseBtn);
     expenseForm2.style.display =
       expenseForm2.style.display === "none" ? "block" : "none";
