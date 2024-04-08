@@ -18,10 +18,4 @@ router.get(
   userController.viewExpenseDetails
 );
 
-// In userRoutes.js or your main application file
-// router.get("/", authMiddleware, (req, res) => {
-//   // If the user is logged in, redirect to their profile page
-//   res.redirect(`/users/${req.userId}`);
-// });
-
 module.exports = router;
