@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const resultsContainer = document.getElementById("results");
   const header = document.querySelector("header");
   const loginButtons = document.getElementById("login"); // all 3 buttons
-
   const guestBtn = document.getElementById("guest-btn");
   const loginBtn = document.getElementById("login-btn");
   const signupBtn = document.getElementById("signup-btn");
@@ -22,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Reload the page to return to the home screen
   homeBtn.addEventListener("click", () => {
-    //window.location.reload();
     window.location.reload();
   });
 
