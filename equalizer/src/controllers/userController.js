@@ -6,7 +6,6 @@ var userId;
 exports.viewAccount = async (req, res) => {
   try {
     userId = req.params.userId;
-    //const userId = req.userId;
     const user = await User.findById(userId);
 
     if (!user) {
@@ -123,28 +122,6 @@ exports.manageExpenses = async (req, res) => {
 };
 
 // Function to view user's expense history
-// exports.viewHistory = async (req, res) => {
-//   try {
-//     const { startDate, endDate, description } = req.query;
-
-//     let query = { userId: userId };
-//     if (startDate && endDate) {
-//       query.date = { $gte: new Date(startDate), $lte: new Date(endDate) };
-//     }
-//     if (description) {
-//       query.description = { $regex: description, $options: "i" }; // Case-insensitive search
-//     }
-
-//     const expenses = await Expense.find(query).sort({ date: -1 });
-
-//     res.status(200).json({ expenses });
-//   } catch (error) {
-//     res.status(500).json({
-//       message: "Error retrieving expense history",
-//       error: error.message,
-//     });
-//   }
-// };
 exports.viewHistory = async (req, res) => {
   try {
     const expenses = await Expense.find({ userId }).sort({ date: -1 });
