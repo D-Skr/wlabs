@@ -77,14 +77,3 @@ exports.logout = (req, res) => {
 
   res.status(200).json({ message: "Logout successful" });
 };
-
-// Middleware to check if a token is blacklisted
-// exports.isTokenBlacklisted = (req, res, next) => {
-//     const token = req.headers.authorization.split(' ')[1];
-
-//     if (tokenBlacklist.includes(token)) {
-//         return res.status(401).json({ message: 'Token has been revoked' });
-//     }
-
-//     next();
-// };
