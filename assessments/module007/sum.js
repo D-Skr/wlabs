@@ -1,3 +1,9 @@
+/*
+ * Write a function that takes in an array of numbers.
+ * The function should return True if any two numbers in list sum to 0,
+ * and false otherwise.
+ */
+
 function addToZero(nums) {
   const checked = new Set();
   for (let num of nums) {
