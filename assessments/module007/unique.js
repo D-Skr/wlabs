@@ -12,3 +12,5 @@ function hasUniqueChars(word) {
 
 console.log(hasUniqueChars("Monday")); //true
 console.log(hasUniqueChars("Moooonday")); //false
+
+//space complexity O(n)

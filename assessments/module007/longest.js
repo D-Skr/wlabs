@@ -15,3 +15,5 @@ function findLongestWord(words) {
 }
 
 console.log(findLongestWord(["hi", "hello"])); //5
+
+//space complexity O(1)

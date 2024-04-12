@@ -17,3 +17,5 @@ function addToZero(nums) {
 
 console.log(addToZero([1, 2, 3, 4])); //false
 console.log(addToZero([1, 2, 3, -2])); //true
+
+//space complexity O(n)
