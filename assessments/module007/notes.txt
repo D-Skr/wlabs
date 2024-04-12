@@ -1,27 +1,45 @@
 Timing Information:
 -------------------
 
-Extra Large Array
+Extra Large Array (size = 100000)
 -----------------
-Time to run code with push():
-Time to run code with unshift():
+Time to run code with push(): 2.5837 ms
+Time to run code with unshift(): 870.037 ms
 
-Large Array
+Large Array (size = 10000)
 -----------
-Time to run code with push():
-Time to run code with unshift():
+Time to run code with push(): 724.7 μs
+Time to run code with unshift(): 8.9435 ms
 
-Medium Array
+Medium Array (size = 1000)
 ------------
-Time to run code with push():
-Time to run code with unshift():
+Time to run code with push(): 150.6 μs
+Time to run code with unshift(): 199.2 μs
 
-Small Array
+Small Array (size = 100)
 -----------
-Time to run code with push():
-Time to run code with unshift():
+Time to run code with push(): 112.2 μs
+Time to run code with unshift(): 46.9 μs
 
-Tiny Array
+Tiny Array (size = 10)
 ----------
-Time to run code with push():
-Time to run code with unshift():
+Time to run code with push(): 105.4 μs
+Time to run code with unshift(): 37.7 μs
+
+The results clearly show that doublerAppend, which uses push() to add elements to the end of the array, 
+scales significantly better than doublerInsert, which uses unshift() to add elements to the beginning. 
+As the array size increases, the time taken by doublerInsert grows much faster compared to doublerAppend. 
+This is evident in the dramatic difference in runtime for the extra large array (870.037 ms vs. 2.5837 ms).
+
+unshift() is slower because it has to shift all existing elements in the array by one position to make room for 
+the new element at the beginning. This means that for an array of size n, using unshift() requires n operations, 
+making it an O(n) operation. On the other hand, push() simply adds the new element to the end, 
+which takes constant time regardless of the array size, making it an O(1) operation.
+
+The performance difference becomes even more pronounced with larger arrays because the number of elements 
+that need to be shifted increases linearly with the array size. This leads to a significant overhead, 
+especially when dealing with large datasets. In contrast, push() maintains its efficiency as it only 
+needs to modify the end of the array, regardless of the total number of elements.
+
+Therefore, for scenarios involving frequent insertions at the end of an array, 
+push() is the preferred choice due to its superior scalability and performance characteristics.
