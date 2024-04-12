@@ -43,3 +43,5 @@ needs to modify the end of the array, regardless of the total number of elements
 
 Therefore, for scenarios involving frequent insertions at the end of an array, 
 push() is the preferred choice due to its superior scalability and performance characteristics.
+
+https://fellowship.hackbrightacademy.com/materials/foundations/exercises/fs-assessment-cs/#module-7-project
