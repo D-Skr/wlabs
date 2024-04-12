@@ -3,7 +3,7 @@
  * Return False otherwise. */
 
 function hasUniqueChars(word) {
-  const wordSet = new Set(word.split(""));
+  const wordSet = new Set(word);
   if (wordSet.size === word.length) {
     return true;
   }
