@@ -17,6 +17,8 @@ Equalizer is a web application designed to make the management of shared expense
 - Secure: Passwords are hashed with bcrypt for security, and the app uses JWT for authentication.
 - Responsive Design: The app is responsive, ensuring a seamless experience on both desktop and mobile devices.
 
+![results](./readme/3_count.jpg)
+
 ## Technologies Used
 
 Equalizer is built using the following technologies:
