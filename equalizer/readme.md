@@ -1,6 +1,6 @@
-# [Equalizer - Simplifying Shared Expenses](http://ec2-3-133-118-215.us-east-2.compute.amazonaws.com/)
+# Equalizer - Simplifying Shared Expenses
 
-### Foundations Capstone Project
+### Foundations Capstone Project: try live [app!](http://ec2-3-133-118-215.us-east-2.compute.amazonaws.com/)
 
 Equalizer is a web application designed to make the management of shared expenses effortless and fair. Whether you're splitting bills with roommates, sharing costs on a group trip, or managing any group expenses, Equalizer ensures that everyone pays their fair share.
 
