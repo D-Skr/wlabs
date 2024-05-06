@@ -16,6 +16,21 @@ Equalizer is a web application designed to make the management of shared expense
 - Secure: Passwords are hashed with bcrypt for security, and the app uses JWT for authentication.
 - Responsive Design: The app is responsive, ensuring a seamless experience on both desktop and mobile devices.
 
+## Technologies Used
+
+Equalizer is built using the following technologies:
+
+- JavaScript: The primary programming language used for both frontend and backend logic.
+- Node.js & Express: These technologies form the backbone of the app server-side logic.
+- MongoDB: The primary database for storing user data securely and efficiently.
+- Mongoose: Facilitates interaction with MongoDB through elegant, schema-based solutions.
+- Axios: Used for making HTTP requests from the web application to external services and APIs.
+- CORS: Middleware to enable cross-origin resource sharing, allowing the API to be accessed from different domains.
+- Bcrypt: Provides powerful password hashing functionalities to secure the users' data.
+- Dotenv: Manages environmental variables in a development environment.
+- JWT (JSON Web Tokens): Ensures secure transmission of information between parties as JSON objects.
+- Rollbar: An error tracking and monitoring service that helps to maintain the reliability of my application.
+
 ## Getting Started
 
 To start using Equalizer, you can either jump right in through Guest Mode or sign up for an account to enjoy enhanced functionalities such as expense history and secure data management.
