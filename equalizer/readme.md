@@ -22,12 +22,12 @@ To start using Equalizer, you can either jump right in through Guest Mode or sig
 
 ## Using Equalizer
 
-    Add Participants: Enter the names of individuals involved in the shared expenses.
-    Enter Expenses: Log every expense and assign it to the respective participants.
-    View History: Access your historical data to see past expenses and settlements.
-    Manage Your Account: Update your account settings, clear history, or delete your account through the user dashboard.
+- Add Participants: Enter the names of individuals involved in the shared expenses.
+- Enter Expenses: Log every expense and assign it to the respective participants.
+- View History: Access your historical data to see past expenses and settlements.
+- Manage Your Account: Update your account settings, clear history, or delete your account through the user dashboard.
 
 ## Security Features
 
-    Data Protection: We use bcrypt to secure your passwords and JWT to manage sessions, ensuring that your data remains safe.
-    Privacy Control: You have full control over your information, including the option to delete your account and clear your history.
+Data Protection: We use bcrypt to secure your passwords and JWT to manage sessions, ensuring that your data remains safe.
+Privacy Control: You have full control over your information, including the option to delete your account and clear your history.
