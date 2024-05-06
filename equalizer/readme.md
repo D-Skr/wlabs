@@ -3,10 +3,14 @@
 ### Foundations Capstone Project
 
 Equalizer is a web application designed to make the management of shared expenses effortless and fair. Whether you're splitting bills with roommates, sharing costs on a group trip, or managing any group expenses, Equalizer ensures that everyone pays their fair share.
-Features
+
+## Features
 
 - Guest Mode: Quickly start adding participants and their expenses without needing to sign up.
-- User Accounts: Sign up to access additional features such as saving expense history.
+- User Accounts: Sign up to access advanced features such as saving and viewing your expense history.
+- Expense History: View a detailed log of all past expense entries, allowing you to track changes over time.
+- Clear History: Easily clear your past expenses with a single click—ideal for starting fresh after each event or when beginning a new budget cycle.
+- Delete Account: Provides users with the option to delete their account along with all associated data, ensuring user control over personal information.
 - Intuitive Interface: An easy-to-use interface powered by TailwindCSS, allowing users to add, modify, and delete expenses with ease.
 - Equalize Expenses: With the click of a button, Equalizer calculates the total, average, and how much each person owes or is owed.
 - Secure: Passwords are hashed with bcrypt for security, and the app uses JWT for authentication.
