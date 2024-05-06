@@ -43,7 +43,7 @@ To start using Equalizer, you can either jump right in through Guest Mode or sig
 - View History: Access your historical data to see past expenses and settlements.
 - Manage Your Account: Update your account settings, clear history, or delete your account through the user dashboard.
 
-![user_profile](./readme/1_main.jpg)
+![user_profile](./readme/2_profile.jpg)
 
 ## Security Features
 
