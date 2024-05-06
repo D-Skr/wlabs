@@ -1,4 +1,4 @@
-# Equalizer - Simplifying Shared Expenses
+# [Equalizer - Simplifying Shared Expenses](http://ec2-3-133-118-215.us-east-2.compute.amazonaws.com/)
 
 ### Foundations Capstone Project
 
