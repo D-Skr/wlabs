@@ -3,7 +3,7 @@
 ### Foundations Capstone Project: try live [app!](http://ec2-3-133-118-215.us-east-2.compute.amazonaws.com/)
 
 Equalizer is a web application designed to make the management of shared expenses effortless and fair. Whether you're splitting bills with roommates, sharing costs on a group trip, or managing any group expenses, Equalizer ensures that everyone pays their fair share.
-![home_screen](./readme/1_main.jpg)
+![home_screen](./readme/1_main.jpg){hight: 100px;}
 
 ## Features
 
@@ -17,7 +17,7 @@ Equalizer is a web application designed to make the management of shared expense
 - Secure: Passwords are hashed with bcrypt for security, and the app uses JWT for authentication.
 - Responsive Design: The app is responsive, ensuring a seamless experience on both desktop and mobile devices.
 
-![results](./readme/3_count.jpg)
+![results](./readme/3_count.jpg) { width: 200px; }
 
 # EQ - The Lightweight Version: [try!](https://d-skr.github.io/eq)
 
@@ -49,7 +49,7 @@ To start using Equalizer, you can either jump right in through Guest Mode or sig
 - View History: Access your historical data to see past expenses and settlements.
 - Manage Your Account: Update your account settings, clear history, or delete your account through the user dashboard.
 
-![user_profile](./readme/2_profile.jpg)
+![user_profile](./readme/2_profile.jpg){hight: 100px;}
 
 ## Security Features
 
