@@ -19,7 +19,7 @@ Equalizer is a web application designed to make the management of shared expense
 
 ![results](./readme/3_count.jpg)
 
-# EQ - The Lightweight Version: [try!](https://d-skr.github.io/eq)
+# EQ - The Lightweight Version: [try it!](https://d-skr.github.io/eq)
 
 EQ: A streamlined version of Equalizer, available as a guest-only mode. EQ is designed to run efficiently on GitHub Pages without the need for complex backends like AWS or MongoDB. This makes it perfect for quick and easy setups for managing expenses on the go.
 
