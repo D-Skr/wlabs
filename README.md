@@ -190,6 +190,8 @@ Building a basic signup/login system — first an unsecure version without hashi
 
 ### 020 SQL Basics
 
+to-do
+
 ### 021 Data Modeling
 
 ### 022 Problem solving
